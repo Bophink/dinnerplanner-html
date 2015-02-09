@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dinner overview</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+
+  </head>
+    <style>
+  .html{
+  	height: 100%;
+  }
+  .container {
+  	height: 100%;
+  	padding:0px 25px;
+  }
+  .jumbotron {
+  	border-style: solid;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 2px;
+    margin-bottom: 0px;
+  }
+  .btn{
+  	background-color: rgb(242, 171, 71);
+  	border: 3px solid;
+  }
+  .img{
+  	border: 3px solid; /* VERKAR INTE FUNKA ANNAT ÄN OM MAN KÖR DET MANUELLT */
+  }
+  html, body, .container{
+  	height: 100%;
+  }
+  </style>
+  <body>
+	<div class="container">
+		<div class="jumbotron" style="background-color: rgb(220,220,220);">
+			<h1 style="display: inline;">HOMELETTE</h1>
+			<h4 style="display: inline;">From the best chefs in the world directly into your kitchen!</h4>
+		</div>
+		<div class="jumbotron" style="background-color: rgb(255,219,124); margin-bottom: 20px">
+			<h2 style="display: inline;">My dinner: 4 people</h2> <!-- HÄR SKA DET VARA INLÄGG AV ANTAL GÄSTER VIA EN VIEW -->
+			<button type="button" class="btn btn-default; pull-right">Go back and edit dinner</button>
+		</div>
+		<div class="row"> <!-- ALLA DE HÄR RÄTTERNA SAMT PRIS OCH SÅNT SKA VARA GJORT I JAVASCRIPT-->
+			<div class="col-md-2">
+			</div>
+			<div class="col-md-2">
+				 <img src="images/bakedbrie.jpg" style="width: 100%; border: 3px solid;"/>
+				 <button type="button" class="btn btn-default" style="width: 100%;">Välj mig</button>
+			</div>
+			<div class="col-md-2">
+				 <img src="images/toast.jpg" style="width: 100%; border: 3px solid;"/>
+				 <button type="button" class="btn btn-default" style="width: 100%;">Toast</button>
+			</div>
+			<div class="col-md-2">
+			</div>
+			<div class="col-md-2">
+				Summa
+			</div>
+		</div>
+	</div>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/view/exampleView.js"></script>
+	<!-- <script src="js/view/exampleViewController.js"></script> -->
+  </body>
+</html>
