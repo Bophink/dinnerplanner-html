@@ -30,6 +30,14 @@
   	background-color: rgb(242, 171, 71);
   	border: 3px solid;
   }
+  .courseThumb{
+  	border: 3px solid;
+  	background-size:100% 100%;
+  	position:relative; 
+  	padding-top: 70%; 
+  	padding-left: 0px; 
+  	padding-right: 0px;
+  }
 
   html, body, .container{
   	height: 100%;
@@ -39,7 +47,7 @@
 	<div class="container">
 		
 	
-		<!-- Rubrik -->
+		<!-- Rubrik Done-->
 		<div class ="row">
 			<div class ="col-md-12" style="background-color: rgb(200,200,200); padding: 25px 25px; border: 3px solid;">
 				<h1 style="display: inline;">HOMELETTE  </h1>
@@ -47,12 +55,12 @@
 				
 			</div>
 		</div>
-		<!-- den vita rutan jag gillade offset 1 men inte så prototypen är -->
+		
 		<div class ="row" style="height: 100%;">
 			<!-- vänster spalten-->
 			<div class="col-md-2" style="background-color: rgba(255,255,255); padding: 5px 0px; border: 3px solid; height: 100%;">
 				
-				<div style="padding: 0px 10px;">
+				<div id="exampleView" style="padding: 0px 10px;">
 					<h3> My Dinner </h3>
 					People <span id="numberOfGuests"></span>
 	          		<button id="minusGuest" class="btn" onclick ="">
@@ -111,21 +119,23 @@
 			</div>
 
 			<!--höger nedre spalt -->
-			<div class="col-md-10" style="background-color: rgb(255,255,255); padding: 5px 15px; border: 3px solid;">
-				<div class="row">
-					<div class="col-md-2 col-md-offset-1" style="padding: 0px 0px;">
-						<div style="border: 3px solid;background-image: url(images/toast.jpg); background-size:100% 100%; position:relative; padding-top: 70%; padding-left: 0px; padding-right: 0px;">
-		          			<button id="search" class="btn" onclick ="" style="width: 100%;background-color: rgba(255,255,255,0.7); heigth: 5%">
-		          			Toast
-		          			</button>
+			<div id="allCourses" class="col-md-10" style="background-color: rgb(255,255,255); padding: 5px 15px; border: 3px solid;">
+				<span id="test"></span>
+				<!--<div id="courses" class="row">
+						<span id="test"></span>
+						
+
+						
+						<div class="col-md-2 col-md-offset-1" style="padding: 0px 0px;">
+							<div class="courseThumb" style="background-image: url(images/toast.jpg);">
+			          			<button id="search" class="btn" onclick ="" style="width: 100%;background-color: rgba(255,255,255,0.7); heigth: 5%">
+			          			Toast
+			          			</button>
+			          		</div>
+			 				<p style="font-size: 75%; padding: 5px 5px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+							</p>
 		          		</div>
-		 				<p style="font-size: 75%; padding: 5px 5px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-						</p>
-	          		</div>
-	          		<div class="col-md-4">
-	          			
-	          		</div>
-				</div>
+				</div>-->
 				
 			</div>
 		</div>
@@ -139,6 +149,7 @@
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
 	<script src="js/view/exampleView.js"></script>
+	<script src="js/view/allCourses.js"></script>
 	<!-- <script src="js/view/exampleViewController.js"></script> -->
   </body>
 </html>

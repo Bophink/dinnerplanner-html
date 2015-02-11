@@ -1,0 +1,32 @@
+var newDiv = document.createElement('div');
+	//newDiv.class = "col-md-2";
+	//newDiv.style = ="padding: 0px 0px;"
+
+	
+
+	var newInnerDiv = document.createElement('div');
+	newInnerDiv.class = "courseThumb";
+	newInnerDiv.style = "background-image: url(images/toast.jpg);";
+
+	var button = document.createElement('button');
+	button.id = "search";
+	button.class = "btn";
+	button.onclick ="";
+
+	var buttonText = document.createTextNode("buttonText");
+
+	var text = document.createElement('p');
+
+	var textText = document.createTextNode("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+							");
+
+	//Put everything together 
+	/*button.appendChild(buttonText);
+	newInnerDiv.appendChild(button);
+
+	text.appendChild(textText);
+	
+
+
+	newDiv.appendChild(newInnerDiv);
+	newDiv.appendChild(text);*/
