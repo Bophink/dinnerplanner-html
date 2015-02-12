@@ -57,6 +57,25 @@ var OverView = function (container, model) {
 
 		}
 	}
+	var verticalLine = document.createElement('div');
+			verticalLine.setAttribute("class",  "col-md-2");
+			verticalLine.setAttribute("id", "verticalLine");
+			verticalLine.setAttribute("style" , "border-left: 3px solid #000000; height: 200px; padding-top: 100px");
+	
+	var text = document.createElement('h3');
+	var textText = document.createTextNode("Total:");
+	
+	var text2 = document.createElement('h3');
+	text2.setAttribute("style", "color: red")
+	var textText2 = document.createTextNode("ex 34567890 sek");
+
+	text.appendChild(textText);
+	verticalLine.appendChild(text);
+
+	text2.appendChild(textText2);
+	verticalLine.appendChild(text2);
+
+	courses.appendChild(verticalLine);
 
 
 	
