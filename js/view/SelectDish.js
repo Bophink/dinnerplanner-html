@@ -15,7 +15,7 @@ var SelectDish = function (container, model) {
 		courses.style = "padding: 20px 20px;"
 
 
-	for(var i = 0; i<3; i++){
+	for(var i = 0; i<dishList.length; i++){
 		//console.log("for: "+i);
 
 

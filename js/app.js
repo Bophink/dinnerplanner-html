@@ -7,4 +7,5 @@ $(function() {
 	var scview = new ScView($("#scview"), model);
 	var ingredview = new IngredView($("#ingredview"), model);
 	var selectDish = new SelectDish($("#allCourses"), model);
+	var overView = new OverView($("#overView"), model);
 });
