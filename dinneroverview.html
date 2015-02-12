@@ -29,11 +29,21 @@
   	background-color: rgb(242, 171, 71);
   	border: 3px solid;
   }
-  .img{
-  	border: 3px solid; /* VERKAR INTE FUNKA ANNAT ÄN OM MAN KÖR DET MANUELLT */
+  .courseThumb{
+    border: 3px solid;
+    background-size:100% 100%;
+    position:relative; 
+    padding-top: 70%; 
+    padding-left: 0px; 
+    padding-right: 0px;
   }
   html, body, .container{
   	height: 100%;
+  }
+ .vertical-line {
+     
+    border-left: 1px solid #000000;
+    height: 500px;
   }
   </style>
   <body>
@@ -47,23 +57,18 @@
 			<button type="button" class="btn btn-default; pull-right">Go back and edit dinner</button>
 		</div>
 		<div id="menu" class="row"> <!-- ALLA DE HÄR RÄTTERNA SAMT PRIS OCH SÅNT SKA VARA GJORT I JAVASCRIPT-->
-      <span id="menumenu"></span>
-			<div class="col-md-2">
-			</div>
-			<div class="col-md-2">
-				 <img src="images/bakedbrie.jpg" style="width: 100%; border: 3px solid;"/>
-				 <button type="button" class="btn btn-default" style="width: 100%;">Välj mig</button>
-			</div>
-			<div class="col-md-2">
-				 <img src="images/toast.jpg" style="width: 100%; border: 3px solid;"/>
-				 <button type="button" class="btn btn-default" style="width: 100%;">Toast</button>
-			</div>
-			<div class="col-md-2">
-			</div>
-			<div class="col-md-2">
-				Summa
-			</div>
+			
+		  
 		</div>
+    <div id="buttonpart" class="row">
+      <hr style="width: 80%; border-color: black; border-width: 3px; "/>
+      <center>
+        <button type="button" class="btn btn-default;">Print Full Recepie</button>
+      </center>
+
+      
+    
+    </div>
 	</div>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>

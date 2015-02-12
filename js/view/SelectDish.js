@@ -7,12 +7,12 @@ var SelectDish = function (container, model) {
 	this.row = container.find("#row");
 	
 
-	var dishList = model.getAllDishes("starter","");
+	var dishList = model.getAllDishes("dessert","");
 
 	var courses = document.createElement('div');
-		courses.className = "row";
-		courses.id = "courses";
-		courses.style = "padding: 20px 20px;"
+		courses.setAttribute("class", "row");
+		courses.setAttribute("tid", "courses");
+		courses.setAttribute("style", "padding: 20px 20px;");
 
 
 	for(var i = 0; i<dishList.length; i++){
@@ -20,19 +20,19 @@ var SelectDish = function (container, model) {
 
 
 		var newDiv = document.createElement('div');
-		newDiv.className = "col-md-2";
-		newDiv.id = dishList[i].name
-		newDiv.style = "padding: 0px 0px; margin: 20px 20px;"
+		newDiv.setAttribute("class", "col-md-2");
+		newDiv.setAttribute("id", dishList[i].name);
+		newDiv.setAttribute("style", "padding: 0px 0px; margin: 20px 20px;");
 
 		var newInnerDiv = document.createElement('div');
-		newInnerDiv.className = "courseThumb";
-		newInnerDiv.style = "background-image: url(images/"+dishList[i].image+");";
+		newInnerDiv.setAttribute("class", "courseThumb");
+		newInnerDiv.setAttribute("style", "background-image: url(images/"+dishList[i].image+");");
 
 		var button = document.createElement('button');
-		button.id = "courseId"+i;
-		button.className = "btn";
-		button.style = "heigth: 5%; width: 100%; background-color: rgba(255,255,255,0.7);"
-		button.onclick ="";
+		button.setAttribute("id", "courseId"+i);
+		button.setAttribute("class", "btn");
+		button.setAttribute("style", "heigth: 5%; width: 100%; background-color: rgba(255,255,255,0.7);");
+		button.setAttribute("onclick", "");
 
 		var buttonText = document.createTextNode(dishList[i].name);
 
