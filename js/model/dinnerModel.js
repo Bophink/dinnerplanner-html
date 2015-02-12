@@ -30,6 +30,8 @@ var DinnerModel = function() {
 	this.getFullMenu = function() {
 		var fullMenu = [];
 		for (i in menu) {
+			console.log(i);
+			console.log(this.getDish(1))
 			fullMenu.push(this.getDish(menu[i]));
 		}
 		return fullMenu;
@@ -70,10 +72,10 @@ var DinnerModel = function() {
 		if (menu[type] != null) {
 			console.log("Den typen fanns");
 			this.removeDishFromMenu(menu[type]);
-			menu[type] = dish;
+			menu[type] = id;
 		}
 		else {
-			menu[0].type = dish;
+			menu[type] = id;
 		}
 	}
 
