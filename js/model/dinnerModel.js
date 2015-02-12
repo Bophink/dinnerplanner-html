@@ -1,8 +1,7 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
  	var nrGuests = 12;
- 	var menu = [];
- 	menu['starter'] = 1;
+ 	var menu = {"starter":"", "main":"", "dessert":""}; // Anvönd en vanlig array istället och kolla om typen stämmer för varje rätt?
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
 
@@ -63,13 +62,18 @@ var DinnerModel = function() {
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		var type = this.getDish(id).type;
+		console.log("Hej");
+		var dish = this.getDish(id);
+		console.log("Hämtade rätt:");
+		console.log(dish);
+		var type = dish.type;
 		if (menu[type] != null) {
+			console.log("Den typen fanns");
 			this.removeDishFromMenu(menu[type]);
-			menu[type].push(this.getDish(id));
+			menu[type] = dish;
 		}
 		else {
-			menu[type].push(this.getDish(id));
+			menu[0].type = dish;
 		}
 	}
 
@@ -127,7 +131,8 @@ var DinnerModel = function() {
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
 	  for(key in dishes){
-			if(dishes[key].id == id) {
+			if(dishes[key].id === id) {
+				console.log(dishes[key].name)
 				return dishes[key];
 			}
 		}
