@@ -17,44 +17,34 @@ var ExampleView = function (container, model) {
 	}
 
 
+	/*menu = model.menu;
+	for (dish in menu) {
+		currentDish = dish + "Dish";
+		if (currentDish != null) {
+			var dishName = document.createTextNode(model.menu[currentDish]);
+			var dishPrice = document.createTextNode(model.menu[currentDish]);
+			var td1 = document.createElement("td");
+			var td2 = document.createElement("td");
+			td1.appendChild(dishName);
+			td2.appendChild(dishPrice);
+			document.getElementById(currentDish).appendChild(td1);
+			document.getElementById(currentDish).appendChild(td2);
+			console.log("hej1");
 
-/*
-	var fullMenu = model.getFullMenu();
-	for (dish in fullMenu) {
-		try {
-			var currentDish = String(dish.type) + "Dish";
-			if (currentDish != null) {
-				var dishName = document.createTextNode(model.menu[currentDish]);
-				var dishPrice = document.createTextNode(model.menu[currentDish]);
-				var td1 = document.createElement("td");
-				var td2 = document.createElement("td");
-				td1.appendChild(dishName);
-				td2.appendChild(dishPrice);
-				document.getElementById(currentDish).appendChild(td1);
-				document.getElementById(currentDish).appendChild(td2);
-				console.log("hej1");
-
-			}
-			else {
-				document.getElementById(currentDish).appendChild("td1");
-				document.getElementById(currentDish).appendChild("td2");	
-				console.log("hej2");
-			}			
 		}
-		catch(e) {
-			console.log("Det gick åt helvete");
+		else {
+			document.getElementById(currentDish).appendChild("td1");
+			document.getElementById(currentDish).appendChild("td2");	
+			console.log("hej2");
 		}
-	}
-*/
-
-
+	}*/
 	// LÄGG IN NAMN OCH PRIS I LISTAN MED DIVAR I TABELLEN!=!=!=! SADLLAÖÄSKF 
 
 	model.addDishToMenu(1);
-	model.addDishToMenu(201);
-	model.addDishToMenu(200);
+	
 	console.log("model.getFullMenu()");
 	var fullMenu = model.getFullMenu();
+<<<<<<< HEAD
 	console.log(fullMenu);
 
 
@@ -88,6 +78,8 @@ var ExampleView = function (container, model) {
 
 
 
+=======
+>>>>>>> origin/master
 
 	//console.log(model.menu["starter"]);
 
