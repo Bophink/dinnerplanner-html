@@ -6,25 +6,45 @@ var ExampleView = function (container, model) {
 	this.numberOfGuests = container.find("#numberOfGuests");
 	this.plusButton = container.find("#plusGuest");
 	this.minusButton = container.find("#minusGuest");
+	model.addDishToMenu(1);
 	//this.dishPrice = container.find("#dishPrice");
 	//this.menuPrice = container.find("#menuPrice");
 	//this.dishName = container.find("#dishName");
 	
 
 	var dishPrice = 0;
-	for (i in model.getDish(1).ingredients) {
-		dishPrice = dishPrice + model.getDish(1).ingredients[i].price;
+	var dish = model.getDish(1)
+	for (i in dish.ingredients) {
+		dishPrice = dishPrice + dish.ingredients[i].price;
+		//console.log(dish.ingredients[i].name+" "+dish.ingredients[i].price)
 	}
 
 
 	menu = model.menu;
 	for (dish in menu) {
 		currentDish = dish + "Dish";
-		if (currentDish != )
+		if (currentDish != null) {
+			var dishName = document.createTextNode(model.menu[currentDish]);
+			var dishPrice = document.createTextNode(model.menu[currentDish]);
+			var td1 = document.createElement("td");
+			var td2 = document.createElement("td");
+			td1.appendChild(dishName);
+			td2.appendChild(dishPrice);
+			document.getElementById(currentDish).appendChild(td1);
+			document.getElementById(currentDish).appendChild(td2);
+			console.log("hej1");
+
+		}
+		else {
+			document.getElementById(currentDish).appendChild("td1");
+			document.getElementById(currentDish).appendChild("td2");	
+			console.log("hej2");
+		}
 	}
 	// LÄGG IN NAMN OCH PRIS I LISTAN MED DIVAR I TABELLEN!=!=!=! SADLLAÖÄSKF 
 
-	//model.addDishToMenu(201);
+	model.addDishToMenu(201);
+	console.log(model.menu);
 
 
 	this.numberOfGuests.html(model.getNumberOfGuests());
