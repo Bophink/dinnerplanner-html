@@ -20,18 +20,18 @@ var OverView = function (container, model) {
 		courses.style = "padding: 20px 20px;"
 
 
-	for(var i = 0; i<dishList.length; i++){
+	for(var i = 0; i<fullMenu.length; i++){
 		//console.log("for: "+i);
 
 
 		var newDiv = document.createElement('div');
 		newDiv.className = "col-md-2";
-		newDiv.id = dishList[i].name
+		newDiv.id = fullMenu[i].name
 		newDiv.style = "padding: 0px 0px; margin: 20px 20px;"
 
 		var newInnerDiv = document.createElement('div');
 		newInnerDiv.className = "courseThumb";
-		newInnerDiv.style = "background-image: url(images/"+dishList[i].image+");";
+		newInnerDiv.style = "background-image: url(images/"+fullMenu[i].image+");";
 
 		var button = document.createElement('button');
 		button.id = "courseId"+i;
@@ -39,7 +39,7 @@ var OverView = function (container, model) {
 		button.style = "heigth: 5%; width: 100%; background-color: rgba(255,255,255,0.7);"
 		button.onclick ="";
 
-		var buttonText = document.createTextNode(dishList[i].name);
+		var buttonText = document.createTextNode(fullMenu[i].name);
 
 		button.appendChild(buttonText);
 		newInnerDiv.appendChild(button);
@@ -48,7 +48,7 @@ var OverView = function (container, model) {
 
 		var text = document.createElement('p');
 
-		var textText = document.createTextNode(dishList[i].description);
+		var textText = document.createTextNode(fullMenu[i].description);
 
 		text.appendChild(textText);
 		newDiv.appendChild(text);
@@ -59,7 +59,7 @@ var OverView = function (container, model) {
 
 	}
 
-	this.row.html(courses);
+	this.row.html(menu);
 	
 
 }

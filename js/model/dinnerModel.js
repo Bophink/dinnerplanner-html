@@ -30,8 +30,8 @@ var DinnerModel = function() {
 	this.getFullMenu = function() {
 		var fullMenu = [];
 		for (i in menu) {
-			console.log(i);
-			console.log(this.getDish(1))
+			//console.log(i);
+			//console.log(this.getDish(1))
 			fullMenu.push(this.getDish(menu[i]));
 		}
 		return fullMenu;
@@ -64,13 +64,13 @@ var DinnerModel = function() {
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		console.log("Hej");
+		//console.log("Hej");
 		var dish = this.getDish(id);
-		console.log("Hämtade rätt:");
-		console.log(dish);
+		//console.log("Hämtade rätt:");
+		//console.log(dish);
 		var type = dish.type;
 		if (menu[type] != null) {
-			console.log("Den typen fanns");
+			//console.log("Den typen fanns");
 			this.removeDishFromMenu(menu[type]);
 			menu[type] = id;
 		}
@@ -134,7 +134,7 @@ var DinnerModel = function() {
 	this.getDish = function (id) {
 	  for(key in dishes){
 			if(dishes[key].id === id) {
-				console.log(dishes[key].name)
+				//console.log(dishes[key].name)
 				return dishes[key];
 			}
 		}
@@ -394,4 +394,3 @@ var DinnerModel = function() {
 
 }
 
-console.log('starter');
