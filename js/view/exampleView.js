@@ -60,21 +60,17 @@ var ExampleView = function (container, model) {
 
 	var fullMenu = model.getFullMenu();
 	for (dish in fullMenu) {
-		//console.log(fullMenu[dish].name);
 		try {
 			if (fullMenu[dish] != "") {
-				console.log("var inte undefined");
 				var dishName = document.createTextNode(fullMenu[dish].name);
-				var dishPrice = document.createTextNode(fullMenu[dish].price);
-				console.log("Första etappen");
+				var dishPrice = document.createTextNode(model.getDishPrice(fullMenu[dish].id));
 				var td1 = document.createElement("td");
 				var td2 = document.createElement("td");
 				td1.appendChild(dishName);
 				td2.appendChild(dishPrice);
-				console.log("Andra etappen");
 				document.getElementById(String (fullMenu[dish].type) + "Dish").appendChild(td1);
 				document.getElementById(String (fullMenu[dish].type) + "Dish").appendChild(td2);
-				console.log("hej1");
+				
 
 			}
 			else {
