@@ -44,9 +44,9 @@ var OverView = function (container, model) {
 
 			newDiv.appendChild(newInnerDiv);
 
-			var text = document.createElement('p');
-
-			var textText = document.createTextNode("Price from JS-object? needs to be calculated");
+			var text = document.createElement('h3');
+			text.setAttribute("style", "color: red")
+			var textText = document.createTextNode(model.getDishPrice(fullMenu[i].id));
 
 			text.appendChild(textText);
 			newDiv.appendChild(text);
