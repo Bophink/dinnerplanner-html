@@ -6,5 +6,5 @@ $(function() {
 	var exampleView = new ExampleView($("#exampleView"), model);
 	var scview = new ScView($("#scview"), model);
 	var ingredview = new IngredView($("#ingredview"), model);
-	var allCourses = new AllCourses($("#allCourses"), model);
+	var allCourses = new AllCouView($("#allCourses"), model);
 });

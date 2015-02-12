@@ -17,11 +17,11 @@ var ExampleView = function (container, model) {
 	}
 
 
-	menu = model.menu;
+	/*menu = model.menu;
 	for (dish in menu) {
 		currentDish = dish + "Dish";
 		if (currentDish != )
-	}
+	}*/
 	// LÄGG IN NAMN OCH PRIS I LISTAN MED DIVAR I TABELLEN!=!=!=! SADLLAÖÄSKF 
 
 	//model.addDishToMenu(201);
