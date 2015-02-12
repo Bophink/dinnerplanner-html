@@ -51,7 +51,7 @@ var DinnerModel = function() {
 
 	this.getDishPrice = function(id) {
 		var nrOfGuests = nrGuests;
-		var dish = this.getDish(id));
+		var dish = this.getDish(id);
 		var dishPrice = 0;
 		for (i in dish.ingredients) {
 			dish.ingredients[i].price*nrOfGuests;
