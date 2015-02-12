@@ -1,6 +1,6 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
- 	var nrGuests = 12;
+ 	var nrGuests = 3;
  	var menu = {"starter":"", "main":"", "dessert":""}; // Anvönd en vanlig array istället och kolla om typen stämmer för varje rätt?
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
@@ -48,6 +48,17 @@ var DinnerModel = function() {
 		return ingredients;
 		//TODO Lab 2
 	}
+
+	this.getDishPrice = function(id) {
+		var nrOfGuests = nrGuests;
+		var dish = this.getDish(id);
+		var dishPrice = 0;
+		for (i in dish.ingredients) {
+			dish.ingredients[i].price*nrOfGuests;
+		}
+		return dishPrice;
+	}
+
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {

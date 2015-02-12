@@ -44,8 +44,11 @@ var ExampleView = function (container, model) {
 	console.log("model.getFullMenu()");
 	var fullMenu = model.getFullMenu();
 
+<<<<<<< HEAD
 	//console.log(model.menu["starter"]);
 
+=======
+>>>>>>> 09c0bef1cf1fd8d7fc4957001f5361853ffb9f9e
 
 	this.numberOfGuests.html(model.getNumberOfGuests());
 	//this.dishPrice.html(dishPrice);
