@@ -16,14 +16,14 @@ var OverView = function (container, model) {
 	//console.log(fullMenu[0].name);
 
 	var courses = document.createElement('div');
-		courses.className = "row";
+		courses.className = "row row-centered";
 		courses.id = "courses";
 		courses.style = "padding: 20px 20px;"
 
 	for(var i = 0; i<3; i++){
 		try{
 			var newDiv = document.createElement('div');
-			newDiv.setAttribute("class",  "col-md-2");
+			newDiv.setAttribute("class",  "col-md-2 col-centered");
 			newDiv.setAttribute("id", fullMenu[i].name);
 			newDiv.setAttribute("style" , "padding: 0px 0px; margin: 20px 20px;");
 
@@ -45,8 +45,9 @@ var OverView = function (container, model) {
 			newDiv.appendChild(newInnerDiv);
 
 			var text = document.createElement('h3');
-			text.setAttribute("style", "color: red")
-			var textText = document.createTextNode(model.getDishPrice(fullMenu[i].id));
+			text.setAttribute("class", "pull-right");
+			text.setAttribute("style", "color: red; pull-right;")
+			var textText = document.createTextNode(model.getDishPrice(fullMenu[i].id)+" SEK");
 
 			text.appendChild(textText);
 			newDiv.appendChild(text);
@@ -67,7 +68,7 @@ var OverView = function (container, model) {
 	
 	var text2 = document.createElement('h3');
 	text2.setAttribute("style", "color: red")
-	var textText2 = document.createTextNode("ex 34567890 sek");
+	var textText2 = document.createTextNode(+model.getTotalMenuPrice()+" SEK");
 
 	text.appendChild(textText);
 	verticalLine.appendChild(text);

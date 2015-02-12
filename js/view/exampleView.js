@@ -41,6 +41,7 @@ var ExampleView = function (container, model) {
 	// LÄGG IN NAMN OCH PRIS I LISTAN MED DIVAR I TABELLEN!=!=!=! SADLLAÖÄSKF 
 
 	model.addDishToMenu(1);
+	
 	console.log("model.getFullMenu()");
 	var fullMenu = model.getFullMenu();
 
