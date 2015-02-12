@@ -7,7 +7,7 @@ var IngredView = function (container, model) {
 	this.ingredTotPrice = container.find("#ingredTotPrice");
 	this.nrOfGuests = container.find("#nrOfGuests");
 
-	var dishID = 201;
+	var dishID = 1;
 	var strOfIngredients = '<table class="table"><tbody>';
 	var totPrice = 0;
 	var nrOfGuests = model.getNumberOfGuests();
