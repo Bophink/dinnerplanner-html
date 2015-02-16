@@ -11,4 +11,5 @@ $(function() {
 	var selectDish = new SelectDish($("#allCourses"), model);
 	var overView = new OverView($("#overView"), model);
 	var menuView = new MenuView($("#menuView"), model);
+	var scview = new ScView($("#scview"), model);
 });

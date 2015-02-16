@@ -18,28 +18,6 @@ var ExampleView = function (container, model) {
 		}
 
 
-		/*menu = model.menu;
-		for (dish in menu) {
-			currentDish = dish + "Dish";
-			if (currentDish != null) {
-				var dishName = document.createTextNode(model.menu[currentDish]);
-				var dishPrice = document.createTextNode(model.menu[currentDish]);
-				var td1 = document.createElement("td");
-				var td2 = document.createElement("td");
-				td1.appendChild(dishName);
-				td2.appendChild(dishPrice);
-				document.getElementById(currentDish).appendChild(td1);
-				document.getElementById(currentDish).appendChild(td2);
-				console.log("hej1");
-
-			}
-			else {
-				document.getElementById(currentDish).appendChild("td1");
-				document.getElementById(currentDish).appendChild("td2");	
-				console.log("hej2");
-			}
-		}*/
-		// LÄGG IN NAMN OCH PRIS I LISTAN MED DIVAR I TABELLEN!=!=!=! SADLLAÖÄSKF 
 
 		model.addDishToMenu(1);
 		model.addDishToMenu(200);
@@ -50,6 +28,9 @@ var ExampleView = function (container, model) {
 
 
 		var fullMenu = model.getFullMenu();
+		document.getElementById("starterDish").innerHTML ="";
+		document.getElementById("main dishDish").innerHTML ="";
+		document.getElementById("dessertDish").innerHTML ="";
 		for (dish in fullMenu) {
 			try {
 				if (fullMenu[dish] != "") {
