@@ -6,6 +6,7 @@ var ExampleView = function (container, model) {
 	this.numberOfGuests = container.find("#numberOfGuests");
 	this.plusButton = container.find("#plusGuest");
 	this.minusButton = container.find("#minusGuest");
+	this.menuPrice = container.find("#menuPrice");
 	//this.dishPrice = container.find("#dishPrice");
 	//this.menuPrice = container.find("#menuPrice");
 	//this.dishName = container.find("#dishName");
@@ -44,7 +45,6 @@ var ExampleView = function (container, model) {
 	
 	console.log("model.getFullMenu()");
 	var fullMenu = model.getFullMenu();
-<<<<<<< HEAD
 	console.log(fullMenu);
 
 
@@ -76,15 +76,11 @@ var ExampleView = function (container, model) {
 
 
 
-
-
-=======
->>>>>>> origin/master
-
 	//console.log(model.menu["starter"]);
 
 
 	this.numberOfGuests.html(model.getNumberOfGuests());
+	this.menuPrice.html(model.getTotalMenuPrice);
 	//this.dishPrice.html(dishPrice);
 	//this.menuPrice.html(model.getTotalMenuPrice);
 	//this.dishName.html(model.menu)
