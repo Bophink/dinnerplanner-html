@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Homelette - Select Dish</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+
+  </head>
+  <style>
+  .html{
+  	height: 100%;
+  }
+  .container {
+  	height: 100%;
+  	padding:0px 25px;
+  }
+  .jumbotron {
+  	background-color: rgba(100,100,100);
+  	border-style: solid;
+    border-width: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 2px;
+  }
+  .btn{
+  	background-color: rgb(242, 171, 71);
+  	border: 3px solid;
+  }
+  .courseThumb{
+  	border: 3px solid;
+  	background-size:100% 100%;
+  	position:relative; 
+  	padding-top: 70%; 
+  	padding-left: 0px; 
+  	padding-right: 0px;
+  }
+
+  html, body, .container{
+  	height: 100%;
+  }
+  </style>
+  <body>
+	<div class="container">
+		
+	
+		<!-- Rubrik Done-->
+		<div class ="row" id="TITLE">
+			<div class ="col-md-12" style="background-color: rgb(200,200,200); padding: 25px 25px; border: 3px solid;">
+				<h1 style="display: inline;">HOMELETTE  </h1>
+				<h4 style="display: inline;">From the best chefs in the world directly into your kitchen!</h4>
+				
+			</div>
+		</div>
+		
+		<div class ="row" id="WITHMENU ">
+			<!-- Meny spalten-->
+			<div class="col-md-2" id="MENU" style="background-color: rgba(255,255,255); padding: 5px 0px; border: 3px solid;">
+				
+				<div id="exampleView" style="padding: 0px 10px;">
+					<h3> My Dinner </h3>
+					
+					People  <span id="numberOfGuests"></span>
+				
+	          		<button id="minusGuest" class="btn" onclick ="">
+	          			<span class="glyphicon glyphicon-minus"></span>
+	          		</button>
+					<button id="plusGuest" class="btn">
+						<span class="glyphicon glyphicon-plus"></span>
+					</button>
+					<!--Needs JS content!-->
+					<table class="table">
+						<tr class="table-striped" style="background-color: rgb(200,200,200);">
+							<th>Dish Name</th>
+						    <th>Cost</th>
+					  	</tr>
+					  	<tr id="starterDish">
+					  	</tr>
+					  	<tr id="main dishDish">
+					  	</tr>
+					  	<tr id="dessertDish">
+					  	</tr>
+					  	<tr>
+							<td>Pending</td>
+						    <td>0.00</td> <!--HÄR SKA DET VARA EN LISTA MED ALLA TIDIGARE COMMITADE RÄTTER OCH PENDING PÅ DEN SOM KÖRS-->
+					  	</tr>
+					  	<tr>
+							<td></td>
+						    <td>SEK <span id="menuPrice"></span></td> <!--HÄR SKA DET VARA EN SUMMA AV PRISET FÖR VARJE RÄTT, HUR MAN NU GÖR DET, ISTÄLLET FÖR ATT BARA VISA PRISET AV VALD RÄTT -->
+					  	</tr>
+
+					</table>
+					<center>
+						<button class="btn btn-default" href="#" role="button">Confirm Dinner</button>
+					</center>	
+				</div>
+				
+				
+			</div>
+
+			<!-- höger övre del -->
+			<div id="SELECT">
+				<div class="col-md-10" id="SELECTDISH" style="background-color: rgb(242,171,51); padding: 5px 15px;">
+					
+					<h3><u> SELECT DISH </u></h3>
+					<div class="row" style>
+						<div class="col-md-4">
+							<input type="search" class="form-control" id="searchField" placeholder="Enter key words" style="width:80%; float: left;">
+			          		<button id="search" class="btn" onclick ="" style="width: 20%; float: left;">
+			          			search
+			          		</button>
+		          		</div>
+		          		<div class="col-md-4">
+		          			<div class="form-group">
+							  	<select class="form-control" id="course">
+								    <option>Starter</option>
+								    <option>Main</option>
+								    <option>Dessert</option>
+							  	</select>
+							</div>
+		          		</div>
+					</div>
+					
+				</div>
+
+				<!--höger nedre spalt -->
+				<div id="allCourses" class="col-md-10" style="background-color: rgb(255,255,255); padding: 5px 15px;">
+					<span id="test"></span>
+					<div id="row"></div>
+					
+					
+				</div>
+			</div>
+			<div id="SINGLE">
+				<div id="scview" class="col-md-5">
+				<h3><span id="dishName"></span></h3>
+				<span id="dishImg"></span>
+			 	<p style="padding: 5px 5px;"><span id="dishDescription"></span>
+				</p>
+				<button class="btn btn-default" href="#" role="button">Back to Select Dish</button>
+				<h4>Preparations </h4>
+      			</div>
+  				<div id="ingredview" class="col-md-5" style="background-color: rgb(242,171,51); padding: 10px 10px;">
+      			<h4><u> INGREDIENTS FOR <span id="nrOfGuests"></span> PEOPLE</u></h4>
+      			<table class="table">
+      				<span id="dishIngredients">
+      					<tr>
+							<td colspan="2">
+								<button class="btn btn-default" id="confBuf" role="button">Confirm Dish</button>
+							</td>
+							<td>SEK</td>
+						    <td><span id="ingredTotPrice"></span></td>
+				  		</tr>
+				  	</span>
+			
+				</table> 	
+      			</div>
+      		</div>
+		</div>
+		<div id="FULLSCREEN">
+			<div id="DINNERSTATUS">
+				<div id="exampleView" class="jumbotron" style="background-color: rgb(255,219,124); margin-bottom: 20px">
+				<h2 style="display: inline;">My dinner: <span id="numberOfGuests"></span> people</h2> <!-- HÄR SKA DET VARA INLÄGG AV ANTAL GÄSTER VIA EN VIEW -->
+				<button type="button" class="btn btn-default; pull-right">Go back and edit dinner</button>
+				</div>
+			</div>
+
+
+			<div id="overView" class="container"><!-- namn!-->		
+			
+				<div id="menu" class="row"> <!-- ALLA DE HÄR RÄTTERNA SAMT PRIS OCH SÅNT SKA VARA GJORT I JAVASCRIPT-->
+				
+				</div>
+		    	<div id="buttonpart" class="row">
+		      		<hr style="width: 80%; border-color: black; border-width: 3px; "/>
+		      		<center>
+		        		<button type="button" class="btn btn-default;">Print Full Recepie</button>
+		      		</center>
+		    	</div>
+			</div>
+			<div id="menuView" class ="row">
+      			<div id="menu">
+      			</div>
+			
+			</div>
+		</div>
+	</div>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/view/OverView.js"></script>
+	<script src="js/view/exampleView.js"></script>
+	<script src="js/ctrl/exampleViewCtrl.js"></script>
+	<script src="js/view/SelectDish.js"></script>
+	<script src="js/view/scview.js"></script>
+	<script src="js/view/ingredview.js"></script>
+	<script src="js/ctrl/IngredViewCtrl.js"></script>
+	<script src="js/view/menuview.js"></script>
+	<!-- <script src="js/view/exampleViewController.js"></script> -->
+  </body>
+</html>

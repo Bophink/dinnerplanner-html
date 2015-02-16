@@ -6,37 +6,49 @@ var IngredView = function (container, model) {
 	this.dishIngredients = container.find("#dishIngredients");
 	this.ingredTotPrice = container.find("#ingredTotPrice");
 	this.nrOfGuests = container.find("#nrOfGuests");
+	this.confBut = container.find("#confBut");
 
-	var dishID = 1;
-	var strOfIngredients = '<table class="table"><tbody>';
-	var totPrice = 0;
-	var nrOfGuests = model.getNumberOfGuests();
+	var dishID = model.getCurrentDish();
+
+	this.doView = function(){
+		var strOfIngredients = '<table class="table"><tbody>';
+		var totPrice = 0;
+		var nrOfGuests = model.getNumberOfGuests();
 
 
-	//creates table-elements and adds the data into them with quantities and prices adjusted to specified nr of guests
-	for (i in model.getDish(dishID).ingredients) {
-		totPrice = totPrice + model.getDish(dishID).ingredients[i].price*nrOfGuests;
-		strOfIngredients = strOfIngredients + "<tr>";
-		strOfIngredients = strOfIngredients + "<td>";
-		strOfIngredients = strOfIngredients + String(model.getDish(dishID).ingredients[i].quantity*nrOfGuests);
-		strOfIngredients = strOfIngredients + " " + String(model.getDish(dishID).ingredients[i].unit);
-		strOfIngredients = strOfIngredients + "</td>";
-		strOfIngredients = strOfIngredients + "<td>";
-		strOfIngredients = strOfIngredients + String(model.getDish(dishID).ingredients[i].name);
-		strOfIngredients = strOfIngredients + "</td>";
-		strOfIngredients = strOfIngredients + "<td>";
-		strOfIngredients = strOfIngredients + "SEK";
-		strOfIngredients = strOfIngredients + "</td>";
-		strOfIngredients = strOfIngredients + "<td>";
-		strOfIngredients = strOfIngredients + String(model.getDish(dishID).ingredients[i].price*nrOfGuests);
-		strOfIngredients = strOfIngredients + "</td>";
-		strOfIngredients = strOfIngredients + "</tr>";
+		//creates table-elements and adds the data into them with quantities and prices adjusted to specified nr of guests
+		for (i in model.getDish(dishID).ingredients) {
+			totPrice = totPrice + model.getDish(dishID).ingredients[i].price*nrOfGuests;
+			strOfIngredients = strOfIngredients + "<tr>";
+			strOfIngredients = strOfIngredients + "<td>";
+			strOfIngredients = strOfIngredients + String(model.getDish(dishID).ingredients[i].quantity*nrOfGuests);
+			strOfIngredients = strOfIngredients + " " + String(model.getDish(dishID).ingredients[i].unit);
+			strOfIngredients = strOfIngredients + "</td>";
+			strOfIngredients = strOfIngredients + "<td>";
+			strOfIngredients = strOfIngredients + String(model.getDish(dishID).ingredients[i].name);
+			strOfIngredients = strOfIngredients + "</td>";
+			strOfIngredients = strOfIngredients + "<td>";
+			strOfIngredients = strOfIngredients + "SEK";
+			strOfIngredients = strOfIngredients + "</td>";
+			strOfIngredients = strOfIngredients + "<td>";
+			strOfIngredients = strOfIngredients + String(model.getDish(dishID).ingredients[i].price*nrOfGuests);
+			strOfIngredients = strOfIngredients + "</td>";
+			strOfIngredients = strOfIngredients + "</tr>";
+		}
+			strOfIngredients = strOfIngredients + "</tbody></table>"
+
+		this.dishIngredients.html(strOfIngredients);
+		this.ingredTotPrice.html(totPrice);
+		this.nrOfGuests.html(nrOfGuests);
 	}
-		strOfIngredients = strOfIngredients + "</tbody></table>"
 
-	this.dishIngredients.html(strOfIngredients);
-	this.ingredTotPrice.html(totPrice);
-	this.nrOfGuests.html(nrOfGuests);
+	this.update = function(){
+		this.doView();
+	}
+
+	this.doView();
+
+	model.addObserver(this);
 	
 }
  

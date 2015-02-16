@@ -1,7 +1,8 @@
 //ExampleView Object constructor
 var ScView = function (container, model) {
 	
-	var dishID = 1;
+	var dishID = model.getCurrentDish();
+	
 	// Get all the relevant elements of the view (ones that show data
   	// and/or ones that responed to interaction)
 	this.dishName = container.find("#dishName");

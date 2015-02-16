@@ -6,6 +6,7 @@ var DinnerModel = function() {
 	// and selected dinner options for dinner menu
 
 	var observers = [];
+	var currentDish = 201;
 
 
 	this.addObserver = function(observer) {
@@ -36,6 +37,10 @@ var DinnerModel = function() {
 	// should return 
 	this.getNumberOfGuests = function() {
 		return nrGuests;
+	}
+
+	this.getCurrentDish = function() {
+		return currentDish;
 	}
 
 	//Returns the dish that is on the menu for selected type 

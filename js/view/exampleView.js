@@ -28,12 +28,10 @@ var ExampleView = function (container, model) {
 
 
 		var fullMenu = model.getFullMenu();
-		document.getElementById("starterDish").innerHTML ="";
-		document.getElementById("main dishDish").innerHTML ="";
-		document.getElementById("dessertDish").innerHTML ="";
 		for (dish in fullMenu) {
 			try {
 				if (fullMenu[dish] != "") {
+					document.getElementById(String (fullMenu[dish].type) + "Dish").innerHTML = "";
 					var dishName = document.createTextNode(fullMenu[dish].name);
 					var dishPrice = document.createTextNode(model.getDishPrice(fullMenu[dish].id));
 					var td1 = document.createElement("td");
