@@ -120,7 +120,6 @@ var DinnerModel = function() {
 	this.getDish = function (id) {
 	  for(key in dishes){
 			if(dishes[key].id === id) {
-				//console.log(dishes[key].name)
 				return dishes[key];
 			}
 		}
