@@ -62,34 +62,41 @@
 				
 				<div id="exampleView" style="padding: 0px 10px;">
 					<h3> My Dinner </h3>
-					People <span id="numberOfGuests"></span>
+					
+					People  <span id="numberOfGuests"></span>
+				
 	          		<button id="minusGuest" class="btn" onclick ="">
 	          			<span class="glyphicon glyphicon-minus"></span>
 	          		</button>
 					<button id="plusGuest" class="btn">
 						<span class="glyphicon glyphicon-plus"></span>
 					</button>
+					<!--Needs JS content!-->
+					<table class="table">
+						<tr class="table-striped" style="background-color: rgb(200,200,200);">
+							<th>Dish Name</th>
+						    <th>Cost</th>
+					  	</tr>
+					  	<tr id="starterDish">
+					  	</tr>
+					  	<tr id="main dishDish">
+					  	</tr>
+					  	<tr id="dessertDish">
+					  	</tr>
+					  	<tr>
+							<td>Pending</td>
+						    <td>0.00</td> <!--HÄR SKA DET VARA EN LISTA MED ALLA TIDIGARE COMMITADE RÄTTER OCH PENDING PÅ DEN SOM KÖRS-->
+					  	</tr>
+					  	<tr>
+							<td></td>
+						    <td>SEK <span id="menuPrice"></span></td> <!--HÄR SKA DET VARA EN SUMMA AV PRISET FÖR VARJE RÄTT, HUR MAN NU GÖR DET, ISTÄLLET FÖR ATT BARA VISA PRISET AV VALD RÄTT -->
+					  	</tr>
+
+					</table>
+					<center>
+						<button class="btn btn-default" href="#" role="button">Confirm Dinner</button>
+					</center>	
 				</div>
-				<!--Needs JS content!-->
-				<table class="table">
-					<tr class="table-striped" style="background-color: rgb(200,200,200);">
-						<th>Dish Name</th>
-					    <th>Cost</th>
-				  	</tr>
-				  	<tr>
-						<td>Pending</td>
-					    <td>0.00</td>
-				  	</tr>
-				  	<tr>
-						<td></td>
-					    <td>SEK 0.00</td>
-				  	</tr>
-
-				</table>
-
-				<center>
-					<button class="btn btn-default" href="#" role="button">Confirm Dinner</button>
-				</center>
 				
 				
 			</div>

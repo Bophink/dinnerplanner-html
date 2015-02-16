@@ -80,7 +80,7 @@ var ExampleView = function (container, model) {
 
 
 	this.numberOfGuests.html(model.getNumberOfGuests());
-	this.menuPrice.html(model.getTotalMenuPrice);
+	this.menuPrice.html(model.getTotalMenuPrice());
 	//this.dishPrice.html(dishPrice);
 	//this.menuPrice.html(model.getTotalMenuPrice);
 	//this.dishName.html(model.menu)
