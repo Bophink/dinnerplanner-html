@@ -12,7 +12,7 @@ var OverView = function (container, model) {
 
 	
 
-	this.menumenu.html(fullMenu.length);
+	//this.menumenu.html(fullMenu.length);
 	//console.log(fullMenu[0].name);
 
 	var courses = document.createElement('div');

@@ -52,32 +52,10 @@
 				<button type="button" class="btn btn-default; pull-right">Go back and edit dinner</button>
 			</div>
 		</div>
-		<div id="scview" class ="row">
-			<div class ="col-md-3" style="display:table-cell; vertical-align:middle; text-align:center;">
-				<span id="dishImg"></span>
-			</div>
-			<div class ="col-md-4">
-				<h2 style="margin-top: 0px"><span id="dishName"></span></h2>
-				<!--<span id="dishDescription"></span>-->
-        <div id="ingredview" class="col-md-6">
-          <h4><u> INGREDIENTS FOR <span id="nrOfGuests"></span> PEOPLE</u></h4>
-          <table class="table">
-            <span id="dishIngredients">
-              <tr>
-                <td colspan="2">
-                  <button class="btn btn-default" href="#" role="button">Confirm Dish</button>
-                </td>
-                <td>SEK</td>
-                <td><span id="ingredTotPrice"></span></td>
-              </tr>
-            </span>
-          </table> 
-        </div>
-			</div>
-			<div class ="col-md-5">
-				<h3 style="margin-top:0px">Preparation</h3>
-				<span id="dishDescription"></span>
-			</div>
+		<div id="menuView" class ="row">
+      <div id="menu">
+      </div>
+			
 		</div>
 
 	</div>
@@ -94,6 +72,7 @@
   <script src="js/view/ingredview.js"></script>
   <script src="js/view/SelectDish.js"></script>
   <script src="js/view/OverView.js"></script>
+  <script src="js/view/menuview.js"></script>
 	<!-- <script src="js/view/exampleViewController.js"></script> -->
   </body>
 </html>

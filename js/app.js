@@ -8,4 +8,5 @@ $(function() {
 	var ingredview = new IngredView($("#ingredview"), model);
 	var selectDish = new SelectDish($("#allCourses"), model);
 	var overView = new OverView($("#overView"), model);
+	var menuView = new MenuView($("#menuView"), model);
 });
