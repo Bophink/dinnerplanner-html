@@ -1,7 +1,21 @@
 //ExampleViewController Object constructor
 var SelectDishCtrl = function(view, model ) {
 
-	console.log(view.buttons);
+	console.log(view.search);
+	console.log(view.searchField);
+	console.log(view.selectDishType);
+
+	
+
+	view.search.click(function()
+		{
+		var searchText = searchField.value;
+ 		console.log("test "+ searchText);
+ 		console.log($("#selectDishType :selected").text());
+ 		model.setFilterSearch($("#selectDishType :selected").text(), searchText);
+
+ 		}
+ 	);
 
 	//view.buttons.click(function(){ 
 			//console.log("Hej");}
@@ -11,8 +25,8 @@ var SelectDishCtrl = function(view, model ) {
 	
 	view.buttons.click(function()
 		{
-		//console.log(this.getAttribute("id"));
- 		console.log("Send to dish: "+this.getAttribute("id"));
+		
+ 		//console.log("Send to dish: "+this.getAttribute("id"));
  		$("#FULLSCREEN").hide();
  		$("#SELECT").hide();
  		$("#SINGLE").show();
@@ -22,7 +36,7 @@ var SelectDishCtrl = function(view, model ) {
  		$("#pendingDish").hide();
 
  		}
- );
+ 	);
 
  
  

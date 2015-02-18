@@ -9,7 +9,7 @@ $(function() {
 	//var scview = new ScView($("#scview"), model);
 	var ingredview = new IngredView($("#ingredview"), model);
 	var ingredviewCtrl = new IngredViewCtrl(ingredview, model);
-	var selectDish = new SelectDish($("#allCourses"), model);
+	var selectDish = new SelectDish($("#SELECT"), model);
 	var selectDishCtrl = new SelectDishCtrl(selectDish, model);
 	var overView = new OverView($("#overView"), model);
 	var menuView = new MenuView($("#menuView"), model);

@@ -8,6 +8,9 @@ var DinnerModel = function() {
 	var observers = [];
 	var currentDishId = 1;
 
+	var filter = "dessert";
+	var searchText = "";
+
 
 	this.addObserver = function(observer) {
 		observers.push(observer);
@@ -23,6 +26,19 @@ var DinnerModel = function() {
 		}
 	}
 
+	this.setFilterSearch = function(newFilter, newSearchText){
+		filter = newFilter;
+		searchText = newSearchText;
+		this.notifyObservers();
+
+	}
+	this.getFilter = function(){
+		return filter;
+	}
+	this.getSearch = function(){
+		return searchText;
+	}
+
 	
 
 
@@ -35,6 +51,8 @@ var DinnerModel = function() {
 		}
 
 	}
+
+
 
 	// should return 
 	this.getNumberOfGuests = function() {
@@ -156,7 +174,7 @@ var DinnerModel = function() {
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
-		console.log(id);
+		//console.log(id);
 	  	for(var key = 0; key< dishes.length; key++){
 			if(dishes[key].id === id) {
 				return dishes[key];
