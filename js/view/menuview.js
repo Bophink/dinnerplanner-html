@@ -73,7 +73,7 @@ var MenuView = function (container, model) {
 			courses.appendChild(rigth);
 	
 		}catch(e){
-			console.log("fullMenu["+i+"] är undefined");
+			//console.log("fullMenu["+i+"] är undefined");
 
 		}
 	}

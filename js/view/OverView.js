@@ -54,7 +54,7 @@ var OverView = function (container, model) {
 
 			courses.appendChild(newDiv);
 		}catch(e){
-			console.log("fullMenu["+i+"] är undefined");
+			//console.log("fullMenu["+i+"] är undefined");
 
 		}
 	}

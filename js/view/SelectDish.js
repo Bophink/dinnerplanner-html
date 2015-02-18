@@ -5,6 +5,9 @@ var SelectDish = function (container, model) {
   	// and/or ones that responed to interaction)
 	
 	this.row = container.find("#row");
+	this.buttonIDs = [];
+	this.buttons = [];
+	
 	
 
 	var dishList = model.getAllDishes("dessert","");
@@ -29,10 +32,11 @@ var SelectDish = function (container, model) {
 		newInnerDiv.setAttribute("style", "background-image: url(images/"+dishList[i].image+");");
 
 		var button = document.createElement('button');
-		button.setAttribute("id", "courseId"+i);
-		button.setAttribute("class", "btn");
+		button.setAttribute("id", dishList[i].id);
+		this.buttonIDs.push(dishList[i].id);
+		button.setAttribute("class", "btn courseButton");
 		button.setAttribute("style", "heigth: 5%; width: 100%; background-color: rgba(255,255,255,0.7);");
-		button.setAttribute("onclick", "");
+		//button.setAttribute("onclick", "");
 
 		var buttonText = document.createTextNode(dishList[i].name);
 
@@ -49,12 +53,21 @@ var SelectDish = function (container, model) {
 		newDiv.appendChild(text);
 
 		courses.appendChild(newDiv);
+		
 
 		
 
 	}
 
+
 	this.row.html(courses);
+
+	
+	this.buttons= container.find(".courseButton");
+
+	
+
+	
 
 	//document.getElementById('allCourses'.appendChild(course));
 

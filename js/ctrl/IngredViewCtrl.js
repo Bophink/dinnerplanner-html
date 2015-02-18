@@ -1,10 +1,16 @@
 //ExampleViewController Object constructor
 var IngredViewCtrl = function(view, model ) {
-	console.log(view.plusButton);
  
  view.confBut.click(
  	function(){
- 		console.log("Confirm current dish: ");
+ 		console.log("Confirm current dish: "+model.getCurrentDishId());
+ 		$("#FULLSCREEN").hide();
+ 		$("#SELECT").show();
+ 		$("#SINGLE").hide();
+
+ 		model.addDishToMenu(model.getCurrentDishId());
+ 		$("#pendingDish").hide();
+
  	}
  );
  

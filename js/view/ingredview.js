@@ -8,9 +8,11 @@ var IngredView = function (container, model) {
 	this.nrOfGuests = container.find("#nrOfGuests");
 	this.confBut = container.find("#confBut");
 
-	var dishID = model.getCurrentDish();
+	
 
 	this.doView = function(){
+
+		var dishID = model.getCurrentDishId();
 		var strOfIngredients = '<table class="table"><tbody>';
 		var totPrice = 0;
 		var nrOfGuests = model.getNumberOfGuests();

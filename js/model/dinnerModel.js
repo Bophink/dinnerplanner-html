@@ -6,22 +6,24 @@ var DinnerModel = function() {
 	// and selected dinner options for dinner menu
 
 	var observers = [];
-	var currentDish = 201;
+	var currentDishId = 1;
 
 
 	this.addObserver = function(observer) {
 		observers.push(observer);
-		console.log("pushat: ");
-		console.log(observer);
+		//console.log("pushat: ");
+		//console.log(observer);
 
 	}
 
 	this.notifyObservers = function(){
 		for(var i = 0; i<observers.length; i++){
 			observers[i].update();
-			console.log("notified");
+			//console.log("notified");
 		}
 	}
+
+	
 
 
 
@@ -29,7 +31,7 @@ var DinnerModel = function() {
 		if (num>0) {
 			nrGuests = num;	
 			this.notifyObservers();	
-			console.log("changed nrG");	
+			//console.log("changed nrG");	
 		}
 
 	}
@@ -39,8 +41,14 @@ var DinnerModel = function() {
 		return nrGuests;
 	}
 
-	this.getCurrentDish = function() {
-		return currentDish;
+	this.getCurrentDishId = function() {
+		return currentDishId;
+	}
+	this.setCurrentDishId = function(id) {
+		console.log("currentdishID ändras till: "+id);
+		currentDishId = id;
+		this.notifyObservers();
+
 	}
 
 	//Returns the dish that is on the menu for selected type 
@@ -100,23 +108,28 @@ var DinnerModel = function() {
 		var dish = this.getDish(id);
 		var type = dish.type;
 		if (menu[type] != null) {
-			this.removeDishFromMenu(menu[type]);
+			//this.removeDishFromMenu(menu[type]);
 			menu[type] = id;
 		}
 		else {
 			menu[type] = id;
 		}
+		this.notifyObservers();
 	}
 		
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
 		var fullMenu = this.getFullMenu();
+		var currDish = this.getDish(id);
+		var dishType = currDish.type;
+		menu[dishType].splice(currDish,1);
+		/*
 		for (dish in fullMenu) {
 			if (dish.id === id) {
 				menu[dish.type].splice(dish,1);
 			}
-		}
+		}*/
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
@@ -143,7 +156,8 @@ var DinnerModel = function() {
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
-	  for(key in dishes){
+		console.log(id);
+	  	for(var key = 0; key< dishes.length; key++){
 			if(dishes[key].id === id) {
 				return dishes[key];
 			}

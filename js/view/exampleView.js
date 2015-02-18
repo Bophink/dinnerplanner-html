@@ -10,21 +10,22 @@ var ExampleView = function (container, model) {
 	//this.dishPrice = container.find("#dishPrice");
 	//this.menuPrice = container.find("#menuPrice");
 	//this.dishName = container.find("#dishName");
+	model.addDishToMenu(1);
+	model.addDishToMenu(200);
 	
 	this.doView = function(){
-		var dishPrice = 0;
+		/*var dishPrice = 0;
 		for (i in model.getDish(1).ingredients) {
 			dishPrice = dishPrice + model.getDish(1).ingredients[i].price;
-		}
+		}*/
 
 
 
-		model.addDishToMenu(1);
-		model.addDishToMenu(200);
+		var currDish = model.getCurrentDishId();
 		
-		console.log("model.getFullMenu()");
+		//console.log("model.getFullMenu()");
 		var fullMenu = model.getFullMenu();
-		console.log(fullMenu);
+		//console.log(fullMenu);
 
 
 		var fullMenu = model.getFullMenu();
@@ -46,13 +47,25 @@ var ExampleView = function (container, model) {
 				else {
 					document.getElementById(String (fullMenu[dish].type) + "Dish").appendChild("td1");
 					document.getElementById(String (fullMenu[dish].type) + "Dish").appendChild("td2");	
-					console.log("hej2");
+					//console.log("hej2");
 				}			
 			}
 			catch(e) {
 				console.log("Det gick åt helvete");
 			}
 		}
+		document.getElementById("pendingDish").innerHTML = "";
+		var dishName = document.createTextNode("Pending");
+		var dishPrice = document.createTextNode(model.getDishPrice(currDish));
+		var td1 = document.createElement("td");
+		var td2 = document.createElement("td");
+		td1.appendChild(dishName);
+		td2.appendChild(dishPrice);
+		document.getElementById("pendingDish").setAttribute("style", "background-color: rgb(242, 171, 71);");
+		document.getElementById("pendingDish").appendChild(td1);
+		document.getElementById("pendingDish").appendChild(td2);
+
+
 
 
 
