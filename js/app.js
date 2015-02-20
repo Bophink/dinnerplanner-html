@@ -12,6 +12,18 @@ $(function() {
 	var selectDish = new SelectDish($("#SELECT"), model);
 	var selectDishCtrl = new SelectDishCtrl(selectDish, model);
 	var overView = new OverView($("#overView"), model);
+	var overViewCtrl = new OVCtrl(overView, model);
 	var menuView = new MenuView($("#menuView"), model);
 	var scview = new ScView($("#scview"), model);
+	var scviewCtrl = new ScViewCtrl(scview, model);
+	var dsView = new DSView($("#DINNERSTATUS"), model);
+	var dsViewCtrl = new DSViewCtrl(dsView, model);
+	var homeView = new HomeView($("#HOME"), model);
+	var homeViewCtrl = new HomeViewCtrl(homeView, model);
+
+	//Default show/hide
+
+	$("#FULLSCREEN").hide();
+	$("#WITHMENU").hide();
+	$("#TITLE").hide();
 });

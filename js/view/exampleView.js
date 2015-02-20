@@ -7,11 +7,12 @@ var ExampleView = function (container, model) {
 	this.plusButton = container.find("#plusGuest");
 	this.minusButton = container.find("#minusGuest");
 	this.menuPrice = container.find("#menuPrice");
+	this.confButton = container.find("#confDinButt");
 	//this.dishPrice = container.find("#dishPrice");
 	//this.menuPrice = container.find("#menuPrice");
 	//this.dishName = container.find("#dishName");
-	model.addDishToMenu(1);
-	model.addDishToMenu(200);
+	//model.addDishToMenu(1);
+	//model.addDishToMenu(200);
 	
 	this.doView = function(){
 		/*var dishPrice = 0;
@@ -21,7 +22,7 @@ var ExampleView = function (container, model) {
 
 
 
-		var currDish = model.getCurrentDishId();
+		
 		
 		//console.log("model.getFullMenu()");
 		var fullMenu = model.getFullMenu();
@@ -54,16 +55,21 @@ var ExampleView = function (container, model) {
 				console.log("Det gick åt helvete");
 			}
 		}
+		var currDish = model.getCurrentDishId();
+		console.log("leftmenu dishID: "+currDish);
 		document.getElementById("pendingDish").innerHTML = "";
-		var dishName = document.createTextNode("Pending");
-		var dishPrice = document.createTextNode(model.getDishPrice(currDish));
-		var td1 = document.createElement("td");
-		var td2 = document.createElement("td");
-		td1.appendChild(dishName);
-		td2.appendChild(dishPrice);
-		document.getElementById("pendingDish").setAttribute("style", "background-color: rgb(242, 171, 71);");
-		document.getElementById("pendingDish").appendChild(td1);
-		document.getElementById("pendingDish").appendChild(td2);
+
+		if(currDish){
+			var dishName = document.createTextNode("Pending");
+			var dishPrice = document.createTextNode(model.getDishPrice(currDish));
+			var td1 = document.createElement("td");
+			var td2 = document.createElement("td");
+			td1.appendChild(dishName);
+			td2.appendChild(dishPrice);
+			document.getElementById("pendingDish").setAttribute("style", "background-color: rgb(242, 171, 71);");
+			document.getElementById("pendingDish").appendChild(td1);
+			document.getElementById("pendingDish").appendChild(td2);
+		}
 
 
 
@@ -74,6 +80,7 @@ var ExampleView = function (container, model) {
 
 		this.numberOfGuests.html(model.getNumberOfGuests());
 		this.menuPrice.html(model.getTotalMenuPrice());
+		
 		//this.dishPrice.html(dishPrice);
 		//this.menuPrice.html(model.getTotalMenuPrice);
 		//this.dishName.html(model.menu)

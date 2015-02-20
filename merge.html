@@ -45,18 +45,40 @@
   </style>
   <body>
 	<div class="container">
+		<div id="HOME" style="background-image: url(http://www.sexyeatz.com/wp-content/uploads/2014/01/Learn-to-Cook-Anything-SexyEatz-Training-Courses.png);height: 100%;padding:0px 25px;">
 		
+	
+			<!-- Rubrik -->
+			<div class ="jumbotron">
+				<h1 style="display: inline;">HOMELETTE  </h1>
+				<h4 style="display: inline;">From the best chefs in the world directly into your kitchen!</h4>
+				
+			</div>
+			<!-- den vita rutan jag gillade offset 1 men inte så prototypen är -->
+			<div class ="row">
+				<div class="col-md-6" style="background-color: rgba(255,255,255,0.8); padding-bottom: 15px;margin-top : 100px;">
+					<h3><u> A Home Dinner Service</u></h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+					</p>
+					<br/>
+					<h6>start quickly</h6>
+				<button id="startBtn" class="btn btn-default" role="button">Create new dinner</button>
+				
+				
+				</div>
+			</div>
+		</div>
 	
 		<!-- Rubrik Done-->
 		<div class ="row" id="TITLE">
-			<div class ="col-md-12" style="background-color: rgb(200,200,200); padding: 25px 25px; border: 3px solid;">
+			<div class ="col-md-12" style="background-color: rgb(200,200,200); padding: 25px 25px; border: 3px solid;" onclick="$('#HOME').show();$('#FULLSCREEN').hide();$('#TITLE').hide();$('#WITHMENU').hide();">
 				<h1 style="display: inline;">HOMELETTE  </h1>
 				<h4 style="display: inline;">From the best chefs in the world directly into your kitchen!</h4>
 				
 			</div>
 		</div>
 		
-		<div class ="row" id="WITHMENU ">
+		<div class ="row" id="WITHMENU">
 			<!-- Meny spalten-->
 			<div class="col-md-2" id="MENU" style="background-color: rgba(255,255,255); padding: 5px 0px; border: 3px solid;">
 				
@@ -92,7 +114,7 @@
 
 					</table>
 					<center>
-						<button class="btn btn-default" href="#" role="button">Confirm Dinner</button>
+						<button class="btn btn-default" id="confDinButt" role="button">Confirm Dinner</button>
 					</center>	
 				</div>
 				
@@ -106,7 +128,7 @@
 					<h3><u> SELECT DISH </u></h3>
 					<div class="row" style>
 						<div class="col-md-4">
-							<input type="search" class="form-control" id="searchField" value="Enter key words" style="width:80%; float: left;">
+							<input type="search" class="form-control" id="searchField" value="" placeholder="search for dishes here!" style="width:80%; float: left;">
 			          		<button id="search" class="btn" onclick ="" style="width: 20%; float: left;">
 			          			search
 			          		</button>
@@ -134,12 +156,12 @@
 			</div>
 			<div id="SINGLE">
 				<div id="scview" class="col-md-5">
-				<h3><span id="dishName"></span></h3>
-				<span id="dishImg"></span>
-			 	<p style="padding: 5px 5px;"><span id="dishDescription"></span>
-				</p>
-				<button class="btn btn-default" href="#" role="button">Back to Select Dish</button>
-				<h4>Preparations </h4>
+					<h3><span id="dishName"></span></h3>
+					<span id="dishImg"></span>
+				 	<p style="padding: 5px 5px;"><span id="dishDescription"></span>
+					</p>
+					<button class="btn btn-default" role="button">Back to Select Dish</button>
+					<h4>Preparations </h4>
       			</div>
   				<div id="ingredview" class="col-md-5" style="background-color: rgb(242,171,51); padding: 10px 10px;">
       			<h4><u> INGREDIENTS FOR <span id="nrOfGuests"></span> PEOPLE</u></h4>
@@ -160,9 +182,9 @@
 		</div>
 		<div id="FULLSCREEN">
 			<div id="DINNERSTATUS">
-				<div id="exampleView" class="jumbotron" style="background-color: rgb(255,219,124); margin-bottom: 20px">
-				<h2 style="display: inline;">My dinner: <span id="numberOfGuests"></span> people</h2> <!-- HÄR SKA DET VARA INLÄGG AV ANTAL GÄSTER VIA EN VIEW -->
-				<button type="button" class="btn btn-default; pull-right">Go back and edit dinner</button>
+				<div class="jumbotron" style="background-color: rgb(255,219,124); margin-bottom: 20px">
+					<h2 style="display: inline;">My dinner: <span id="numberOfGuests"></span> people</h2> <!-- HÄR SKA DET VARA INLÄGG AV ANTAL GÄSTER VIA EN VIEW -->
+					<button type="button" class="btn btn-default; pull-right">Go back and edit dinner</button>
 				</div>
 			</div>
 
@@ -200,9 +222,15 @@
 	<script src="js/view/SelectDish.js"></script>
 	<script src="js/ctrl/selectDishCtrl.js"></script>
 	<script src="js/view/scview.js"></script>
+	<script src="js/ctrl/scviewCtrl.js"></script>
 	<script src="js/view/ingredview.js"></script>
 	<script src="js/ctrl/IngredViewCtrl.js"></script>
 	<script src="js/view/menuview.js"></script>
-	<!-- <script src="js/view/exampleViewController.js"></script> -->
+	<script src="js/view/dsview.js"></script>
+	<script src="js/ctrl/dsViewCtrl.js"></script>
+	<script src="js/ctrl/ovCtrl.js"></script>
+	<script src="js/view/homeView.js"></script>
+	<script src="js/ctrl/homeViewCtrl.js"></script>
+	
   </body>
 </html>

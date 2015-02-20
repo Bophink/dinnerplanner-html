@@ -74,10 +74,17 @@ var SelectDish = function (container, model) {
 		
 		this.buttons= container.find(".courseButton");
 
-		var selectDishCtrl = new SelectDishCtrl(this, model);
+		selectDishCtrl.update();
+
+
+		
 	}
 
+	var selectDishCtrl = new SelectDishCtrl(this, model);
+
 	this.update();
+
+
 
 	model.addObserver(this);
 	

@@ -11,4 +11,13 @@ var ExampleViewCtrl = function(view, model ) {
  	model.setNumberOfGuests(model.getNumberOfGuests() - 1);
  	}
  );
+
+ view.confButton.click(function(){
+ 	model.setCurrentDishId("");
+ 	$("#FULLSCREEN").show();
+ 	$("#overView").show();
+ 	$("#menuView").hide();
+ 	$("#WITHMENU").hide();
+ 	}
+ );
 }

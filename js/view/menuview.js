@@ -2,85 +2,96 @@
 var MenuView = function (container, model) {
 	this.menu = container.find("#menu");
 
-	var fullMenu = model.getFullMenu();
+	this.update = function(){
 
-	var courses = document.createElement('div');
-		courses.className = "row row-centered";
-		courses.id = "courses";
-		courses.style = "padding: 20px 20px;"
-	
-	// Get all the relevant elements of the view (ones that show data
-  	// and/or ones that responed to interaction)
+		var fullMenu = model.getFullMenu();
+		console.log(fullMenu);
 
-	for(var i = 0; i<3; i++){
-		try{
+		var courses = document.createElement('div');
+			courses.id = "courses";
+			courses.style = "padding: 20px 20px;"
 		
-			var left = document.createElement('div');
-			left.setAttribute("class",  "col-md-3");
-			left.setAttribute("id", fullMenu[i].name+"image");
-			left.setAttribute("style" , "display:table-cell; vertical-align:middle; text-align:center;");
+		// Get all the relevant elements of the view (ones that show data
+	  	// and/or ones that responed to interaction)
+
+		for(var i = 0; i<fullMenu.length; i++){
+			try{
+
+				var course = document.createElement('div');
+				course.className = "row row-centered";
+				course.style = "margin-bottom:20px;"
+			
+				var left = document.createElement('div');
+				left.setAttribute("class",  "col-md-3");
+				left.setAttribute("id", fullMenu[i].name+"image");
+				left.setAttribute("style" , "display:table-cell; vertical-align:middle; text-align:center;");
 
 
-			var image = document.createElement('img');
-			image.setAttribute("src", "images/"+String(fullMenu[i].image))
+				var image = document.createElement('img');
+				image.setAttribute("src", "images/"+String(fullMenu[i].image))
 
-			left.appendChild(image);
+				left.appendChild(image);
 
-			var center = document.createElement('div');
-			center.setAttribute("class",  "col-md-4");
-			center.setAttribute("id", fullMenu[i].name+"rubrik");
+				var center = document.createElement('div');
+				center.setAttribute("class",  "col-md-4");
+				center.setAttribute("id", fullMenu[i].name+"rubrik");
 
-			var rubrik = document.createElement('h1');
+				var rubrik = document.createElement('h1');
 
-			var rubrikText = document.createTextNode(fullMenu[i].name);
+				var rubrikText = document.createTextNode(fullMenu[i].name);
 
-			rubrik.appendChild(rubrikText);
+				rubrik.appendChild(rubrikText);
 
-			var shortT = document.createElement('p');
+				var shortT = document.createElement('p');
 
-			var shortText = document.createTextNode(fullMenu[i].description);
+				var shortText = document.createTextNode(fullMenu[i].description);
 
-			shortT.appendChild(shortText);
+				shortT.appendChild(shortText);
 
-			center.appendChild(rubrik);
-			center.appendChild(shortT);
+				center.appendChild(rubrik);
+				center.appendChild(shortT);
 
-			var rigth = document.createElement('div');
-			rigth.setAttribute("class",  "col-md-4");
-			rigth.setAttribute("id", fullMenu[i].name+"prep");
+				var rigth = document.createElement('div');
+				rigth.setAttribute("class",  "col-md-4");
+				rigth.setAttribute("id", fullMenu[i].name+"prep");
 
-			var rubrikprep = document.createElement('h1');
+				var rubrikprep = document.createElement('h1');
 
-			var rubrikprepText = document.createTextNode("Preparation");
+				var rubrikprepText = document.createTextNode("Preparation");
 
-			rubrikprep.appendChild(rubrikprepText);
+				rubrikprep.appendChild(rubrikprepText);
 
-			rigth.appendChild(rubrikprep);
+				rigth.appendChild(rubrikprep);
 
-			var shortP = document.createElement('p');
+				var shortP = document.createElement('p');
 
-			var shortPText = document.createTextNode(fullMenu[i].description);
+				var shortPText = document.createTextNode(fullMenu[i].description);
 
-			shortP.appendChild(shortPText);
+				shortP.appendChild(shortPText);
 
-			rigth.appendChild(shortP);
-
-
+				rigth.appendChild(shortP);
 
 
-			courses.appendChild(left);
-			courses.appendChild(center);
-			courses.appendChild(rigth);
-	
-		}catch(e){
-			//console.log("fullMenu["+i+"] är undefined");
 
+
+				course.appendChild(left);
+				course.appendChild(center);
+				course.appendChild(rigth);
+				courses.appendChild(course);
+		
+			}catch(e){
+				//console.log("fullMenu["+i+"] är undefined");
+
+			}
 		}
+
+
+
+		this.menu.html(courses);
 	}
 
-
-
-	this.menu.html(courses);
+	this.update();
+	model.addObserver(this);
 
 }
 

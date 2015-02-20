@@ -1,14 +1,14 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
  	var nrGuests = 3;
- 	var menu = {"starter":"", "main":"", "dessert":""}; 
+ 	var menu = {"starter":"", "main dish":"", "dessert":""}; 
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
 
 	var observers = [];
-	var currentDishId = 1;
+	var currentDishId = "";
 
-	var filter = "dessert";
+	var filter = "starter";
 	var searchText = "";
 
 
@@ -60,7 +60,10 @@ var DinnerModel = function() {
 	}
 
 	this.getCurrentDishId = function() {
-		return currentDishId;
+		if(currentDishId!=""){
+			return currentDishId;
+		}
+		
 	}
 	this.setCurrentDishId = function(id) {
 		console.log("currentdishID ändras till: "+id);

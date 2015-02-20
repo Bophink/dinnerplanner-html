@@ -9,7 +9,7 @@ var IngredViewCtrl = function(view, model ) {
  		$("#SINGLE").hide();
 
  		model.addDishToMenu(model.getCurrentDishId());
- 		$("#pendingDish").hide();
+ 		model.setCurrentDishId("");
 
  	}
  );
