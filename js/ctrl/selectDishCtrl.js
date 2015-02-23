@@ -11,8 +11,8 @@ var SelectDishCtrl = function(view, model ) {
 	view.search.click(function()
 		{
 		var searchText = searchField.value;
- 		console.log("test "+ searchText);
- 		console.log($("#selectDishType :selected").text());
+ 		//console.log("test "+ searchText);
+ 		//console.log($("#selectDishType :selected").text());
  		model.setFilterSearch($("#selectDishType :selected").text(), searchText);
 
  		}

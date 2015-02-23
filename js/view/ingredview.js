@@ -38,7 +38,9 @@ var IngredView = function (container, model) {
 				strOfIngredients = strOfIngredients + "</td>";
 				strOfIngredients = strOfIngredients + "</tr>";
 			}
-		}catch(e){console.log("skit");}
+		}catch(e){
+			//console.log("skit");
+		}
 		strOfIngredients = strOfIngredients + "</tbody></table>"
 
 		this.dishIngredients.html(strOfIngredients);

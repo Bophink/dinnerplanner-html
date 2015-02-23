@@ -21,7 +21,24 @@ $(function() {
 	var homeView = new HomeView($("#HOME"), model);
 	var homeViewCtrl = new HomeViewCtrl(homeView, model);
 
+
+	model.getAllDishes();
+
 	//Default show/hide
+
+	this.showSELECT = function(){
+
+		$("#FULLSCREEN").hide();
+ 		$("#WITHMENU").show();
+		$("#TITLE").show();
+		$("#SELECT").show();
+		$("#SINGLE").hide();
+		$("#HOME").hide();
+		
+
+		model.setCurrentDishId("");
+		alert("Det fungerar");
+	}
 
 	$("#FULLSCREEN").hide();
 	$("#WITHMENU").hide();

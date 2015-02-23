@@ -31,7 +31,7 @@ var ExampleView = function (container, model) {
 
 		var fullMenu = model.getFullMenu();
 		for (dish in fullMenu) {
-			try {
+			try {	//kan bytas till if
 				if (fullMenu[dish] != "") {
 					document.getElementById(String (fullMenu[dish].type) + "Dish").innerHTML = "";
 					var dishName = document.createTextNode(fullMenu[dish].name);
@@ -52,11 +52,11 @@ var ExampleView = function (container, model) {
 				}			
 			}
 			catch(e) {
-				console.log("Det gick åt helvete");
+				//console.log("Det gick åt helvete");
 			}
 		}
 		var currDish = model.getCurrentDishId();
-		console.log("leftmenu dishID: "+currDish);
+		//console.log("leftmenu dishID: "+currDish);
 		document.getElementById("pendingDish").innerHTML = "";
 
 		if(currDish){

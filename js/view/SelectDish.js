@@ -16,10 +16,13 @@ var SelectDish = function (container, model) {
 		this.buttonIDs = [];
 		this.buttons = [];
 		
-		console.log(model.getFilter());
-		console.log(model.getSearch());
+		//console.log(model.getFilter());
+		//console.log(model.getSearch());
 
-		var dishList = model.getAllDishes(model.getFilter(),model.getSearch());
+		//model.getAllDishes();
+		var dishList = model.getDishList();
+		//console.log("tog in "+dishList.length+" rätter");
+		
 
 		var courses = document.createElement('div');
 			courses.setAttribute("class", "row");
@@ -33,33 +36,27 @@ var SelectDish = function (container, model) {
 
 			var newDiv = document.createElement('div');
 			newDiv.setAttribute("class", "col-md-2");
-			newDiv.setAttribute("id", dishList[i].name);
+			newDiv.setAttribute("id", dishList[i].Title);
 			newDiv.setAttribute("style", "padding: 0px 0px; margin: 20px 20px;");
 
 			var newInnerDiv = document.createElement('div');
 			newInnerDiv.setAttribute("class", "courseThumb");
-			newInnerDiv.setAttribute("style", "background-image: url(images/"+dishList[i].image+");");
+			newInnerDiv.setAttribute("style", "background-image: url("+dishList[i].ImageURL120+");");
 
 			var button = document.createElement('button');
-			button.setAttribute("id", dishList[i].id);
-			this.buttonIDs.push(dishList[i].id);
+			button.setAttribute("id", dishList[i].RecipeID);
+			this.buttonIDs.push(dishList[i].RecipeID);
 			button.setAttribute("class", "btn courseButton");
 			button.setAttribute("style", "heigth: 5%; width: 100%; background-color: rgba(255,255,255,0.7);");
 			//button.setAttribute("onclick", "");
 
-			var buttonText = document.createTextNode(dishList[i].name);
+			var buttonText = document.createTextNode(dishList[i].Title);
 
 			button.appendChild(buttonText);
 			newInnerDiv.appendChild(button);
 
 			newDiv.appendChild(newInnerDiv);
 
-			var text = document.createElement('p');
-
-			var textText = document.createTextNode(dishList[i].description);
-
-			text.appendChild(textText);
-			newDiv.appendChild(text);
 
 			courses.appendChild(newDiv);
 			

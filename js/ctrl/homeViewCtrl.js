@@ -13,8 +13,12 @@ var HomeViewCtrl = function (view, model) {
  			$("#SELECT").show();
  			$("#SINGLE").hide();
  			$("#HOME").hide();
+ 			
 
  			model.setCurrentDishId("");
 		}
 	)
+
+
+	
 }

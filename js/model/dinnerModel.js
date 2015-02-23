@@ -8,8 +8,15 @@ var DinnerModel = function() {
 	var observers = [];
 	var currentDishId = "";
 
-	var filter = "starter";
+	var filter = "Appetizer";
 	var searchText = "";
+	
+	var dishList = [];
+
+	this.getDishList = function(){
+		//console.log(dishList);
+		return dishList;
+	}
 
 
 	this.addObserver = function(observer) {
@@ -19,7 +26,8 @@ var DinnerModel = function() {
 
 	}
 
-	this.notifyObservers = function(){
+	this.notifyObservers = function(obj){
+		dishList = obj;
 		for(var i = 0; i<observers.length; i++){
 			observers[i].update();
 			//console.log("notified");
@@ -29,7 +37,8 @@ var DinnerModel = function() {
 	this.setFilterSearch = function(newFilter, newSearchText){
 		filter = newFilter;
 		searchText = newSearchText;
-		this.notifyObservers();
+		this.getAllDishes();
+		
 
 	}
 	this.getFilter = function(){
@@ -156,24 +165,48 @@ var DinnerModel = function() {
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
-	this.getAllDishes = function (type,filter) {
-	  return $(dishes).filter(function(index,dish) {
-		var found = true;
-		if(filter){
-			found = false;
-			$.each(dish.ingredients,function(index,ingredient) {
-				if(ingredient.name.indexOf(filter)!=-1) {
-					found = true;
-				}
-			});
-			if(dish.name.indexOf(filter) != -1)
-			{
-				found = true;
-			}
-		}
-	  	return dish.type == type && found;
-	  });	
-	}
+	this.getAllDishes = function () {
+
+		var apiKey = "dvxF0CCPfnBJczzM0l3mACa6iROX43Py";
+        var url = "http://api.bigoven.com/recipes?pg=1&rpp=4&title_kw="
+                  + searchText +" "+ filter  
+                  + "&api_key="+apiKey;
+
+        console.log(filter+"  "+ searchText);
+
+        var model = this;
+
+        var dishList = [];
+        
+        //console.log(url);
+        $.ajax({
+            type: "GET",
+            dataType: 'json',
+            cache: false,
+
+            url: url,
+            success: function (data) {
+            	
+                //alert('success');
+                //console.log(data.Results[1]);
+                //console.log(dishList);
+                for(var i = 0; i < data.Results.length; i++){
+                	dishList.push(data.Results[i]);
+                }
+
+                model.notifyObservers(dishList);
+            }
+
+        })
+        
+        
+
+    }
+
+    
+
+
+	 
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
