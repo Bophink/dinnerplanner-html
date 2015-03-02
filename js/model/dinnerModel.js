@@ -120,7 +120,7 @@ var DinnerModel = function() {
 		var dish = currentDish;
 		var dishPrice = 0;
 		for (i in dish.Ingredients) {
-			dishPrice += dish.Ingredients[i].Quantity*nrOfGuests;
+			dishPrice += dish.Ingredients[i].MetricQuantity*nrOfGuests;
 		}
 		return dishPrice;
 	}

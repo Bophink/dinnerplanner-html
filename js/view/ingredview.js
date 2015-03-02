@@ -12,7 +12,7 @@ var IngredView = function (container, model) {
 
 	this.update = function(){
 
-		var dishID = model.getCurrentDishId();
+		var dish = model.getDish();
 		var strOfIngredients = '<table class="table"><tbody>';
 		var totPrice = 0;
 		var nrOfGuests = model.getNumberOfGuests();
@@ -20,21 +20,21 @@ var IngredView = function (container, model) {
 
 		//creates table-elements and adds the data into them with quantities and prices adjusted to specified nr of guests
 		try{
-			for (i in model.getDish(dishID).ingredients) {
-				totPrice = totPrice + model.getDish(dishID).ingredients[i].price*nrOfGuests;
+			for (i in model.getDish().Ingredients) {
+				totPrice = totPrice + model.getDish().Ingredients[i].MetricQuantity*nrOfGuests;
 				strOfIngredients = strOfIngredients + "<tr>";
 				strOfIngredients = strOfIngredients + "<td>";
-				strOfIngredients = strOfIngredients + (+(model.getDish(dishID).ingredients[i].quantity*nrOfGuests).toFixed(2));
-				strOfIngredients = strOfIngredients + " " + String(model.getDish(dishID).ingredients[i].unit);
+				strOfIngredients = strOfIngredients + (+(model.getDish().Ingredients[i].MetricQuantity*nrOfGuests).toFixed(2));
+				strOfIngredients = strOfIngredients + " " + String(model.getDish().Ingredients[i].MetricUnit);
 				strOfIngredients = strOfIngredients + "</td>";
 				strOfIngredients = strOfIngredients + "<td>";
-				strOfIngredients = strOfIngredients + String(model.getDish(dishID).ingredients[i].name);
+				strOfIngredients = strOfIngredients + String(model.getDish().Ingredients[i].Name);
 				strOfIngredients = strOfIngredients + "</td>";
 				strOfIngredients = strOfIngredients + "<td>";
 				strOfIngredients = strOfIngredients + "SEK";
 				strOfIngredients = strOfIngredients + "</td>";
 				strOfIngredients = strOfIngredients + "<td>";
-				strOfIngredients = strOfIngredients + String(model.getDish(dishID).ingredients[i].price*nrOfGuests);
+				strOfIngredients = strOfIngredients + (+(model.getDish().Ingredients[i].MetricQuantity*nrOfGuests).toFixed(2));
 				strOfIngredients = strOfIngredients + "</td>";
 				strOfIngredients = strOfIngredients + "</tr>";
 			}
