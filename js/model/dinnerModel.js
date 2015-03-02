@@ -122,6 +122,7 @@ var DinnerModel = function() {
 		for (i in dish.Ingredients) {
 			dishPrice += dish.Ingredients[i].MetricQuantity*nrOfGuests;
 		}
+		dishPrice = dishPrice.toFixed(2);
 		return dishPrice;
 	}
 

@@ -42,6 +42,7 @@ var IngredView = function (container, model) {
 			//console.log("skit");
 		}
 		strOfIngredients = strOfIngredients + "</tbody></table>"
+		totPrice = totPrice.toFixed(2);
 
 		this.dishIngredients.html(strOfIngredients);
 		this.ingredTotPrice.html(totPrice);
