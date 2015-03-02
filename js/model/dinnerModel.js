@@ -129,14 +129,18 @@ var DinnerModel = function() {
 	this.getTotalMenuPrice = function() {
 		var totalPrice = 0;
 		var fullMenu = this.getFullMenu();
+		console.log(fullMenu);
 		for(dish in fullMenu){
 			if(fullMenu[dish]){
-				for(ing in fullMenu[dish].ingredients){
-					totalPrice += fullMenu[dish].ingredients[ing].price;
+				for (i in dish.Ingredients) {
+					console.log(dish.Ingredients[i]);
+					totalPrice += dish.Ingredients[i].MetricQuantity*nrOfGuests;
 				}
+				
+				
 			}
 		} 
-		return totalPrice * this.getNumberOfGuests();
+		return totalPrice;
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu

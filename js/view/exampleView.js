@@ -33,21 +33,21 @@ var ExampleView = function (container, model) {
 		for (dish in fullMenu) {
 			try {	//kan bytas till if
 				if (fullMenu[dish] != "") {
-					document.getElementById(String (fullMenu[dish].type) + "Dish").innerHTML = "";
-					var dishName = document.createTextNode(fullMenu[dish].name);
-					var dishPrice = document.createTextNode(model.getDishPrice(fullMenu[dish].id));
+					document.getElementById(String (fullMenu[dish].Category) + "Dish").innerHTML = "";
+					var dishName = document.createTextNode(fullMenu[dish].Title);
+					var dishPrice = document.createTextNode(model.getDishPrice(fullMenu[dish].RecepieID));
 					var td1 = document.createElement("td");
 					var td2 = document.createElement("td");
 					td1.appendChild(dishName);
 					td2.appendChild(dishPrice);
-					document.getElementById(String (fullMenu[dish].type) + "Dish").appendChild(td1);
-					document.getElementById(String (fullMenu[dish].type) + "Dish").appendChild(td2);
+					document.getElementById(String (fullMenu[dish].Category) + "Dish").appendChild(td1);
+					document.getElementById(String (fullMenu[dish].Category) + "Dish").appendChild(td2);
 					
 
 				}
 				else {
-					document.getElementById(String (fullMenu[dish].type) + "Dish").appendChild("td1");
-					document.getElementById(String (fullMenu[dish].type) + "Dish").appendChild("td2");	
+					document.getElementById(String (fullMenu[dish].Category) + "Dish").appendChild("td1");
+					document.getElementById(String (fullMenu[dish].Category) + "Dish").appendChild("td2");	
 					//console.log("hej2");
 				}			
 			}
