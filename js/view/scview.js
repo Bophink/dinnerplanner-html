@@ -16,6 +16,7 @@ var ScView = function (container, model) {
 			this.dishName = container.find("#dishName");
 			this.dishImg = container.find("#dishImg");
 			this.dishDescription = container.find("#dishDescription");
+			this.dishInstructions = container.find("#dishInstructions")
 			
 			var dImg = document.createElement('img');
 			dImg.src="http://marknadskompetens.se/projekt/imageresize.php?link="+dish.ImageURL+"&newWidth=350";
@@ -25,6 +26,7 @@ var ScView = function (container, model) {
 			this.dishName.html(dish.Title);
 			this.dishImg.html(dImg);
 			this.dishDescription.html(dish.Description);
+			this.dishInstructions.html(dish.Instructions);
 		}
 
 	}
