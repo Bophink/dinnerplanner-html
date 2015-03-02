@@ -29,7 +29,7 @@ var OverView = function (container, model) {
 
 				var newInnerDiv = document.createElement('div');
 				newInnerDiv.setAttribute("class", "courseThumb");
-				newInnerDiv.setAttribute("style" , "background-image: url(images/"+fullMenu[i].image+");");
+				newInnerDiv.setAttribute("style" , "background-image: url("+fullMenu[i].ImageURL+");");
 
 				var button = document.createElement('button');
 				button.setAttribute("id", "courseId"+i);

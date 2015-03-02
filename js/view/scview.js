@@ -5,9 +5,10 @@ var ScView = function (container, model) {
 
 	this.update = function(){
 
-		var dishID = model.getCurrentDishId();
-		if(dishID){
-			console.log("Trying to get the dish with id:"+dishID);
+		var dish = model.getDish();
+		console.log(dish);
+		if(dish){
+			//console.log("Trying to get the dish with id:"+dishID);
 			//var dish = model.getDish(dishID);
 			
 			// Get all the relevant elements of the view (ones that show data
@@ -17,12 +18,13 @@ var ScView = function (container, model) {
 			this.dishDescription = container.find("#dishDescription");
 			
 			var dImg = document.createElement('img');
-			dImg.src="images/" + String (model.getDish(dishID).image);
+			dImg.src="http://marknadskompetens.se/projekt/imageresize.php?link="+dish.ImageURL+"&newWidth=350";
+			dish.ImageURL;
 
 
-			this.dishName.html(model.getDish(dishID).name);
+			this.dishName.html(dish.Title);
 			this.dishImg.html(dImg);
-			this.dishDescription.html(model.getDish(dishID).description);
+			this.dishDescription.html(dish.Description);
 		}
 
 	}

@@ -26,9 +26,15 @@ var MenuView = function (container, model) {
 				left.setAttribute("id", fullMenu[i].name+"image");
 				left.setAttribute("style" , "display:table-cell; vertical-align:middle; text-align:center;");
 
+				var imageURL="";
+				if(!fullMenu[i].ImageURL || fullMenu[i].ImageURL === "http://redirect.bigoven.com/pics/recipe-no-image.jpg"){
+					imageURL = "http://i580.photobucket.com/albums/ss248/stupid77_album/lonelyDog.jpg";
+				}else{
+					imageURL = fullMenu[i].ImageURL;
+				}
 
 				var image = document.createElement('img');
-				image.setAttribute("src", "images/"+String(fullMenu[i].image))
+				image.setAttribute("src", imageURL);
 
 				left.appendChild(image);
 
