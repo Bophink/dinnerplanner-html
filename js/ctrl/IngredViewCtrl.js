@@ -8,7 +8,7 @@ var IngredViewCtrl = function(view, model ) {
  		$("#SELECT").show();
  		$("#SINGLE").hide();
 
- 		model.addDishToMenu(model.getCurrentDishId());
+ 		model.addDishToMenu(model.getDish());
  		model.setCurrentDishId("");
 
  	}

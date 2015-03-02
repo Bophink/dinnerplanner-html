@@ -5,6 +5,7 @@ var MenuView = function (container, model) {
 	this.update = function(){
 
 		var fullMenu = model.getFullMenu();
+		console.log("Menyn är: ");
 		console.log(fullMenu);
 
 		var courses = document.createElement('div');
@@ -15,7 +16,7 @@ var MenuView = function (container, model) {
 	  	// and/or ones that responed to interaction)
 
 		for(var i = 0; i<fullMenu.length; i++){
-			try{
+			if(fullMenu[i]){
 
 				var course = document.createElement('div');
 				course.className = "row row-centered";
@@ -23,7 +24,7 @@ var MenuView = function (container, model) {
 			
 				var left = document.createElement('div');
 				left.setAttribute("class",  "col-md-3");
-				left.setAttribute("id", fullMenu[i].name+"image");
+				left.setAttribute("id", fullMenu[i].Title+"image");
 				left.setAttribute("style" , "display:table-cell; vertical-align:middle; text-align:center;");
 
 				var imageURL="";
@@ -34,23 +35,23 @@ var MenuView = function (container, model) {
 				}
 
 				var image = document.createElement('img');
-				image.setAttribute("src", imageURL);
+				image.setAttribute("src", "http://marknadskompetens.se/projekt/imageresize.php?link="+imageURL+"&newWidth=200");
 
 				left.appendChild(image);
 
 				var center = document.createElement('div');
 				center.setAttribute("class",  "col-md-4");
-				center.setAttribute("id", fullMenu[i].name+"rubrik");
+				center.setAttribute("id", fullMenu[i].Title+"rubrik");
 
 				var rubrik = document.createElement('h1');
 
-				var rubrikText = document.createTextNode(fullMenu[i].name);
+				var rubrikText = document.createTextNode(fullMenu[i].Title);
 
 				rubrik.appendChild(rubrikText);
 
 				var shortT = document.createElement('p');
 
-				var shortText = document.createTextNode(fullMenu[i].description);
+				var shortText = document.createTextNode(fullMenu[i].Description);
 
 				shortT.appendChild(shortText);
 
@@ -59,7 +60,7 @@ var MenuView = function (container, model) {
 
 				var rigth = document.createElement('div');
 				rigth.setAttribute("class",  "col-md-4");
-				rigth.setAttribute("id", fullMenu[i].name+"prep");
+				rigth.setAttribute("id", fullMenu[i].Title+"prep");
 
 				var rubrikprep = document.createElement('h1');
 
@@ -71,7 +72,7 @@ var MenuView = function (container, model) {
 
 				var shortP = document.createElement('p');
 
-				var shortPText = document.createTextNode(fullMenu[i].description);
+				var shortPText = document.createTextNode(fullMenu[i].Instructions);
 
 				shortP.appendChild(shortPText);
 
@@ -85,9 +86,6 @@ var MenuView = function (container, model) {
 				course.appendChild(rigth);
 				courses.appendChild(course);
 		
-			}catch(e){
-				//console.log("fullMenu["+i+"] är undefined");
-
 			}
 		}
 

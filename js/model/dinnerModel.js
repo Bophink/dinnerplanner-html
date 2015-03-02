@@ -1,7 +1,7 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
  	var nrGuests = 3;
- 	var menu = {"starter":"", "main dish":"", "dessert":""}; 
+ 	var menu = {"Appetizers":"", "Main Dish":"", "Dessert":""}; 
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
 
@@ -96,11 +96,9 @@ var DinnerModel = function() {
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		var fullMenu = [];
-		for (i in menu) {
-			fullMenu.push(this.getDish(menu[i]));
-		}
-		return fullMenu;
+		var array = [menu.Appetizers,menu["Main Dish"], menu.Dessert];
+
+		return array;
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
@@ -142,26 +140,22 @@ var DinnerModel = function() {
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
-	this.addDishToMenu = function(id) {
-		var dish = this.getDish(id);
-		var type = dish.type;
+	this.addDishToMenu = function(obj) {
+		var type = obj.Category;
 		if (menu[type] != null) {
 			//this.removeDishFromMenu(menu[type]);
-			menu[type] = id;
+			menu[type] = obj;
 		}
 		else {
-			menu[type] = id;
+			menu[type] = obj;
 		}
 		this.notifyObservers();
 	}
 		
 
 	//Removes dish from menu
-	this.removeDishFromMenu = function(id) {
-		var fullMenu = this.getFullMenu();
-		var currDish = this.getDish(id);
-		var dishType = currDish.type;
-		menu[dishType].splice(currDish,1);
+	this.removeDishFromMenu = function(type) {
+		menu[type].splice(currDish,1);
 		/*
 		for (dish in fullMenu) {
 			if (dish.id === id) {
@@ -181,11 +175,11 @@ var DinnerModel = function() {
                   + "&api_key="+apiKey;
                   var model = this;
 
-        console.log("API anrop");
+        console.log("API anrop ALL");
 
         
         
-        console.log(url);
+        //console.log(url);
         $.ajax({
             type: "GET",
             dataType: 'json',
@@ -199,7 +193,6 @@ var DinnerModel = function() {
                 //console.log(dishList);
                 dishList = data.Results;
                 
-                console.log("API success");
 
 
                 model.notifyObservers();
@@ -219,6 +212,7 @@ var DinnerModel = function() {
 	//function that returns a dish of specific ID
 	this.getDishAPI = function () {
 		//console.log(id);
+		console.log("API anrop SINGLE");
 
 		if (currentDishId) {
 			var model = this;
@@ -234,8 +228,8 @@ var DinnerModel = function() {
 	                //alert('success');
 	                //console.log(data.Results[1]);
 	                //console.log(dishList);
-	                console.log("API success");
-	                console.log(data);
+	                
+	                //console.log(data);
 	                currentDish = data;
 
 

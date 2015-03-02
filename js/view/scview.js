@@ -6,7 +6,7 @@ var ScView = function (container, model) {
 	this.update = function(){
 
 		var dish = model.getDish();
-		console.log(dish);
+		//console.log(dish);
 		if(dish){
 			//console.log("Trying to get the dish with id:"+dishID);
 			//var dish = model.getDish(dishID);

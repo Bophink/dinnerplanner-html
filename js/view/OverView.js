@@ -13,7 +13,7 @@ var OverView = function (container, model) {
 		
 
 		//this.menumenu.html(fullMenu.length);
-		//console.log(fullMenu[0].name);
+		//console.log("ov meny: "+fullMenu.length);
 
 		var courses = document.createElement('div');
 			courses.className = "row row-centered";
@@ -21,10 +21,10 @@ var OverView = function (container, model) {
 			courses.style = "padding: 20px 20px;"
 
 		for(var i = 0; i<fullMenu.length; i++){
-			try{
+			if(fullMenu[i]){
 				var newDiv = document.createElement('div');
 				newDiv.setAttribute("class",  "col-md-2 col-centered");
-				newDiv.setAttribute("id", fullMenu[i].name);
+				newDiv.setAttribute("id", fullMenu[i].Title);
 				newDiv.setAttribute("style" , "padding: 0px 0px; margin: 20px 20px;");
 
 				var newInnerDiv = document.createElement('div');
@@ -37,7 +37,7 @@ var OverView = function (container, model) {
 				button.setAttribute("style", "heigth: 5%; width: 100%; background-color: rgba(255,255,255,0.7);");
 				button.setAttribute("onclick", "");
 
-				var buttonText = document.createTextNode(fullMenu[i].name);
+				var buttonText = document.createTextNode(fullMenu[i].Title);
 
 				button.appendChild(buttonText);
 				newInnerDiv.appendChild(button);
@@ -53,9 +53,6 @@ var OverView = function (container, model) {
 				newDiv.appendChild(text);
 
 				courses.appendChild(newDiv);
-			}catch(e){
-				//console.log("fullMenu["+i+"] är undefined");
-
 			}
 		}
 		var verticalLine = document.createElement('div');
