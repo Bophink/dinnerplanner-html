@@ -7,11 +7,15 @@ var DinnerModel = function() {
 
 	var observers = [];
 	var currentDishId = "";
+	var currentDish = {};
 
 	var filter = "Appetizer";
 	var searchText = "";
 	
 	var dishList = [];
+
+	var apiKey = "dvx6xnM6eJJ7D6eU5toZ9RnMtHN74Gye";
+	var apiKey2 = "dvxF0CCPfnBJczzM0l3mACa6iROX43Py";
 
 	this.getDishList = function(){
 		//console.log(dishList);
@@ -26,8 +30,8 @@ var DinnerModel = function() {
 
 	}
 
-	this.notifyObservers = function(obj){
-		dishList = obj;
+	this.notifyObservers = function(){
+		
 		for(var i = 0; i<observers.length; i++){
 			observers[i].update();
 			//console.log("notified");
@@ -46,6 +50,9 @@ var DinnerModel = function() {
 	}
 	this.getSearch = function(){
 		return searchText;
+	}
+	this.getDish = function(){
+		return currentDish;
 	}
 
 	
@@ -77,6 +84,7 @@ var DinnerModel = function() {
 	this.setCurrentDishId = function(id) {
 		console.log("currentdishID ändras till: "+id);
 		currentDishId = id;
+		this.getDishAPI();
 		this.notifyObservers();
 
 	}
@@ -99,20 +107,20 @@ var DinnerModel = function() {
 	this.getAllIngredients = function() {
 		var menuDishes = this.getFullMenu();
 		var ingredients = [];
-		for (dish in menuDishes) {
+		/*for (dish in menuDishes) {
 			for(ing in dish.ingredients){
 				ingredients.push(ing);
 			}
-		}
+		}*/
 		return ingredients;
 	}
 
 	this.getDishPrice = function(id) {
 		var nrOfGuests = nrGuests;
-		var dish = this.getDish(id);
+		var dish = currentDish;
 		var dishPrice = 0;
-		for (i in dish.ingredients) {
-			dishPrice += dish.ingredients[i].price*nrOfGuests;
+		for (i in dish.Ingredients) {
+			dishPrice += dish.Ingredients[i].Quantity*nrOfGuests;
 		}
 		return dishPrice;
 	}
@@ -167,18 +175,17 @@ var DinnerModel = function() {
 	//if you don't pass any filter all the dishes will be returned
 	this.getAllDishes = function () {
 
-		var apiKey = "dvxF0CCPfnBJczzM0l3mACa6iROX43Py";
-        var url = "http://api.bigoven.com/recipes?pg=1&rpp=4&title_kw="
+		
+        var url = "http://api.bigoven.com/recipes?pg=1&rpp=8&any_kw="
                   + searchText +" "+ filter  
                   + "&api_key="+apiKey;
+                  var model = this;
 
-        console.log(filter+"  "+ searchText);
+        console.log("API anrop");
 
-        var model = this;
-
-        var dishList = [];
         
-        //console.log(url);
+        
+        console.log(url);
         $.ajax({
             type: "GET",
             dataType: 'json',
@@ -186,15 +193,16 @@ var DinnerModel = function() {
 
             url: url,
             success: function (data) {
-            	
+            	dishList.length=0;
                 //alert('success');
                 //console.log(data.Results[1]);
                 //console.log(dishList);
-                for(var i = 0; i < data.Results.length; i++){
-                	dishList.push(data.Results[i]);
-                }
+                dishList = data.Results;
+                
+                console.log("API success");
 
-                model.notifyObservers(dishList);
+
+                model.notifyObservers();
             }
 
         })
@@ -209,13 +217,38 @@ var DinnerModel = function() {
 	 
 
 	//function that returns a dish of specific ID
-	this.getDish = function (id) {
+	this.getDishAPI = function () {
 		//console.log(id);
-	  	for(var key = 0; key< dishes.length; key++){
+
+		if (currentDishId) {
+			var model = this;
+	        var url = "http://api.bigoven.com/recipe/"
+	                  + currentDishId + "?api_key="+apiKey;
+			$.ajax({
+	            type: "GET",
+	            dataType: 'json',
+	            cache: false,
+
+	            url: url,
+	            success: function (data) {
+	                //alert('success');
+	                //console.log(data.Results[1]);
+	                //console.log(dishList);
+	                console.log("API success");
+	                console.log(data);
+	                currentDish = data;
+
+
+	                model.notifyObservers();
+	            }
+
+	        })
+		}
+/*	  	for(var key = 0; key< dishes.length; key++){
 			if(dishes[key].id === id) {
 				return dishes[key];
 			}
-		}
+		}*/
 	}
 
 
