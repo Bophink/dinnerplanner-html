@@ -89,6 +89,16 @@ var MenuView = function (container, model) {
 			}
 		}
 
+		if(fullMenu[0] ==="" && fullMenu[1] ==="" && fullMenu[2] ==="" ){
+			var noCourse = document.createElement('h1');
+
+			var noCourseText = document.createTextNode("Add courses to your menu, to show them here.");
+			noCourse.appendChild(noCourseText);
+
+			courses.appendChild(noCourse);
+
+		}
+
 
 
 		this.menu.html(courses);

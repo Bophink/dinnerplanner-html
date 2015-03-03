@@ -196,21 +196,27 @@ var DinnerModel = function() {
             beforeSend: function(){
        
             	$("#rowID").html("<img id='loading' src='https://mydreamstore.in/static/images/im-loader-gif.gif' />");
+            	$("#errorMSG").html("");
             },
             success: function (data) {
             	$("#rowID").html("");
-            	$("#errorMSG").html("");
+            	
             	dishList.length=0;
                 //alert('success');
-                //console.log(data.Results[1]);
+                console.log(data.Results.length === 0);
                 //console.log(dishList);
                 dishList = data.Results;
+                if(data.Results.length === 0){
+                	console.log("hej");
+                	$("#errorMSG").html("<h1>Your search returned no results</h1>");
+                }
                 
 
 
                 model.notifyObservers();
             },
             error: function(xhr,err){
+            	$("#rowID").html("");
             	$("#errorMSG").html("<h1>There was an error, please check your connnection </h1>");
             	console.log(xhr);
 
