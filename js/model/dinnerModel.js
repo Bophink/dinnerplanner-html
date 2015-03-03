@@ -82,7 +82,7 @@ var DinnerModel = function() {
 		
 	}
 	this.setCurrentDishId = function(id) {
-		console.log("currentdishID ändras till: "+id);
+		//console.log("currentdishID ändras till: "+id);
 		currentDishId = id;
 		this.getDishAPI();
 		this.notifyObservers();
@@ -114,13 +114,12 @@ var DinnerModel = function() {
 	}
 
 	this.getDishPrice = function(id) {
-		var nrOfGuests = nrGuests;
 		var dish = currentDish;
 		var dishPrice = 0;
 		for (i in dish.Ingredients) {
-			dishPrice += dish.Ingredients[i].MetricQuantity*nrOfGuests;
+			dishPrice += dish.Ingredients[i].MetricQuantity*nrGuests;
 		}
-		dishPrice = dishPrice.toFixed(2);
+		dishPrice = +(dishPrice.toFixed(2));
 		return dishPrice;
 	}
 
@@ -129,18 +128,21 @@ var DinnerModel = function() {
 	this.getTotalMenuPrice = function() {
 		var totalPrice = 0;
 		var fullMenu = this.getFullMenu();
-		console.log(fullMenu);
+		
+		
 		for(dish in fullMenu){
-			if(fullMenu[dish]){
-				for (i in dish.Ingredients) {
-					console.log(dish.Ingredients[i]);
-					totalPrice += dish.Ingredients[i].MetricQuantity*nrOfGuests;
+			//console.log(dish);
+			if(fullMenu[dish]!=""){
+				for (i in fullMenu[dish].Ingredients) {
+					
+					totalPrice += fullMenu[dish].Ingredients[i].MetricQuantity*nrGuests;
 				}
 				
 				
 			}
 		} 
-		return totalPrice;
+		console.log(fullMenu + "cost: "+totalPrice);
+		return +(totalPrice.toFixed(2));
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
@@ -191,7 +193,13 @@ var DinnerModel = function() {
             cache: false,
 
             url: url,
+            beforeSend: function(){
+       
+            	$("#rowID").html("<img id='loading' src='https://mydreamstore.in/static/images/im-loader-gif.gif' />");
+            },
             success: function (data) {
+            	$("#rowID").html("");
+            	$("#errorMSG").html("");
             	dishList.length=0;
                 //alert('success');
                 //console.log(data.Results[1]);
@@ -201,7 +209,13 @@ var DinnerModel = function() {
 
 
                 model.notifyObservers();
-            }
+            },
+            error: function(xhr,err){
+            	$("#errorMSG").html("<h1>There was an error, please check your connnection </h1>");
+            	console.log(xhr);
+
+	        }
+            
 
         })
         
@@ -217,9 +231,10 @@ var DinnerModel = function() {
 	//function that returns a dish of specific ID
 	this.getDishAPI = function () {
 		//console.log(id);
-		console.log("API anrop SINGLE");
+		
 
 		if (currentDishId) {
+			console.log("API anrop SINGLE");
 			var model = this;
 	        var url = "http://api.bigoven.com/recipe/"
 	                  + currentDishId + "?api_key="+apiKey;
@@ -229,16 +244,33 @@ var DinnerModel = function() {
 	            cache: false,
 
 	            url: url,
+	            beforeSend: function(){
+	            	$("#loadingOverlay").html("<img src='https://mydreamstore.in/static/images/im-loader-gif.gif' />");
+	            	$("#NameImg").hide();
+	            	$("#dishInstructions").hide();
+	            	$("#BackSD").hide();
+	            	$("#ingredview").hide();
+
+            	},
 	            success: function (data) {
 	                //alert('success');
 	                //console.log(data.Results[1]);
 	                //console.log(dishList);
 	                
 	                //console.log(data);
+	                $("#loadingOverlay").html("");
+	                $("#NameImg").show();
+	            	$("#dishInstructions").show();
+	            	$("#ingredview").show();
 	                currentDish = data;
-
-
 	                model.notifyObservers();
+	            },
+	            error: function(xhr,err){
+	            	$("#loadingOverlay").html("<h1 style='margin-left:200px;'>There was an error, please check your connnection </h1>");
+	            	$("#BackSD").show();
+	            	
+	            	//console.log(xhr);
+
 	            }
 
 	        })

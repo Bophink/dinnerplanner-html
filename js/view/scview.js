@@ -7,7 +7,7 @@ var ScView = function (container, model) {
 
 		var dish = model.getDish();
 		//console.log(dish);
-		if(dish){
+		if(dish != ""){
 			//console.log("Trying to get the dish with id:"+dishID);
 			//var dish = model.getDish(dishID);
 			
@@ -26,7 +26,7 @@ var ScView = function (container, model) {
 			this.dishName.html(dish.Title);
 			this.dishImg.html(dImg);
 			this.dishDescription.html(dish.Description);
-			this.dishInstructions.html(dish.Instructions);
+			this.dishInstructions.html("<h4>Preparations </h4><p>" + dish.Instructions+"</p>");
 		}
 
 	}

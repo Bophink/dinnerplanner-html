@@ -5,8 +5,8 @@ var MenuView = function (container, model) {
 	this.update = function(){
 
 		var fullMenu = model.getFullMenu();
-		console.log("Menyn är: ");
-		console.log(fullMenu);
+		//console.log("Menyn är: ");
+		//console.log(fullMenu);
 
 		var courses = document.createElement('div');
 			courses.id = "courses";

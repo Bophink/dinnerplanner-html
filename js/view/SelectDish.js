@@ -4,7 +4,7 @@ var SelectDish = function (container, model) {
 	// Get all the relevant elements of the view (ones that show data
   	// and/or ones that responed to interaction)
 	
-	this.row = container.find("#row");
+	this.rowID = container.find("#rowID");
 	this.searchField = container.find("#searchField");
 	this.search = container.find("#search");
 	this.selectDishType = container.find("#selectDishType");
@@ -26,7 +26,7 @@ var SelectDish = function (container, model) {
 
 		var courses = document.createElement('div');
 			courses.setAttribute("class", "row");
-			courses.setAttribute("tid", "courses");
+			courses.setAttribute("id", "courses");
 			courses.setAttribute("style", "padding: 20px 20px;");
 
 		if (dishList){
@@ -50,7 +50,12 @@ var SelectDish = function (container, model) {
 				button.setAttribute("style", "heigth: 5%; width: 100%; background-color: rgba(255,255,255,0.7);");
 				//button.setAttribute("onclick", "");
 
-				var buttonText = document.createTextNode(dishList[i].Title);
+				var textInButton = dishList[i].Title;
+				if(textInButton.length > 18){
+					textInButton = textInButton.substring(0,16)+"...";
+				}
+
+				var buttonText = document.createTextNode(textInButton);
 
 				button.appendChild(buttonText);
 				newInnerDiv.appendChild(button);
@@ -67,7 +72,7 @@ var SelectDish = function (container, model) {
 		}
 
 
-		this.row.html(courses);
+		this.rowID.html(courses);
 
 		
 		this.buttons= container.find(".courseButton");

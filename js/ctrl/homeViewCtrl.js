@@ -6,7 +6,7 @@ var HomeViewCtrl = function (view, model) {
   	// and/or ones that responed to interaction)
 	view.startBtn.click(
 		function() {
-			console.log("hejhej");
+			//console.log("hejhej");
 			$("#FULLSCREEN").hide();
  			$("#WITHMENU").show();
  			$("#TITLE").show();

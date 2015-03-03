@@ -44,6 +44,7 @@
   }
   </style>
   <body>
+  	
 	<div class="container">
 		<div id="HOME" style="background-image: url(http://www.sexyeatz.com/wp-content/uploads/2014/01/Learn-to-Cook-Anything-SexyEatz-Training-Courses.png);height: 100%;padding:0px 25px;">
 		
@@ -148,37 +149,42 @@
 
 				<!--höger nedre spalt -->
 				<div id="allCourses" class="col-md-10" style="background-color: rgb(255,255,255); padding: 5px 15px;">
-					<span id="test"></span>
-					<div id="row"></div>
+					<div id="errorMSG"></div>
+					<div id="rowID"></div>
+					
 					
 					
 				</div>
 			</div>
 			<div id="SINGLE">
+				<div id="loadingOverlay"></div>
 				<div id="scview" class="col-md-5">
-					<h3><span id="dishName"></span></h3>
-					<span id="dishImg"></span>
-				 	<p style="padding: 5px 5px;"><span id="dishDescription"></span>
-					</p>
-					<button class="btn btn-default" role="button">Back to Select Dish</button>
-					<h4>Preparations </h4>
-					<p><span id="dishInstructions"></span></p>
+					<div id="NameImg">
+						<h3><span id="dishName"></span></h3>
+						<span id="dishImg"></span>
+					 	<p style="padding: 5px 5px;"><span id="dishDescription"></span>
+						</p>
+					</div>
+					<button class="btn btn-default" id="BackSD" role="button">Back to Select Dish</button>
+					
+					<span id="dishInstructions"></span>
       			</div>
   				<div id="ingredview" class="col-md-5" style="background-color: rgb(242,171,51); padding: 10px 10px;">
-      			<h4><u> INGREDIENTS FOR <span id="nrOfGuests"></span> PEOPLE</u></h4>
-      			<table class="table">
-      				<span id="dishIngredients">
-      					<tr>
-							<td colspan="2">
-								<button class="btn btn-default" id="confBut" role="button">Confirm Dish</button>
-							</td>
-							<td>SEK</td>
-						    <td><span id="ingredTotPrice"></span></td>
-				  		</tr>
-				  	</span>
-			
-				</table> 	
+	      			<h4><u> INGREDIENTS FOR <span id="nrOfGuests"></span> PEOPLE</u></h4>
+	      			<table class="table">
+	      				<span id="dishIngredients">
+	      					<tr>
+								<td colspan="2">
+									<button class="btn btn-default" id="confBut" role="button">Confirm Dish</button>
+								</td>
+								<td>SEK</td>
+							    <td><span id="ingredTotPrice"></span></td>
+					  		</tr>
+					  	</span>
+				
+					</table> 	
       			</div>
+      			
       		</div>
 		</div>
 		<div id="FULLSCREEN">
