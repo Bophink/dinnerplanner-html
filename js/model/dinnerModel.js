@@ -266,6 +266,7 @@ var DinnerModel = function() {
 	                //console.log(data);
 	                $("#loadingOverlay").html("");
 	                $("#NameImg").show();
+	                $("#BackSD").show();
 	            	$("#dishInstructions").show();
 	            	$("#ingredview").show();
 	                currentDish = data;
