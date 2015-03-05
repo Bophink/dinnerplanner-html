@@ -3,13 +3,13 @@ var IngredViewCtrl = function(view, model ) {
  
  view.confBut.click(
  	function(){
- 		console.log("Confirm current dish: "+model.getCurrentDishId());
+ 		//console.log("Confirm current dish: "+model.getCurrentDishId());
  		$("#FULLSCREEN").hide();
  		$("#SELECT").show();
  		$("#SINGLE").hide();
 
  		model.addDishToMenu(model.getDish());
- 		model.setCurrentDishId("");
+ 		model.setCurrentDish("");
 
  	}
  );

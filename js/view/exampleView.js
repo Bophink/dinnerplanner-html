@@ -35,7 +35,7 @@ var ExampleView = function (container, model) {
 				if (fullMenu[dish] != "") {
 					document.getElementById(String (fullMenu[dish].Category) + "Dish").innerHTML = "";
 					var dishName = document.createTextNode(fullMenu[dish].Title);
-					var dishPrice = document.createTextNode(model.getDishPrice(fullMenu[dish].RecepieID));
+					var dishPrice = document.createTextNode(model.getDishPrice(fullMenu[dish]));
 					var td1 = document.createElement("td");
 					var td2 = document.createElement("td");
 					td1.appendChild(dishName);
@@ -55,11 +55,12 @@ var ExampleView = function (container, model) {
 				//console.log("Det gick åt helvete");
 			}
 		}
-		var currDish = model.getCurrentDishId();
-		//console.log("leftmenu dishID: "+currDish);
+		var currDish = model.getCurrentDish();
+		console.log("leftmenu dishID: "+currDish);
 		document.getElementById("pendingDish").innerHTML = "";
 
-		if(currDish){
+		if(currDish!=""){
+			console.log(currDish);
 			var dishName = document.createTextNode("Pending");
 			var dishPrice = document.createTextNode(model.getDishPrice(currDish));
 			var td1 = document.createElement("td");

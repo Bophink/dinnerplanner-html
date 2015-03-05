@@ -1,13 +1,13 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
  	var nrGuests = 3;
- 	var menu = {"Appetizers":"", "Main Dish":"", "Dessert":""}; 
+ 	var menu = {"Appetizers":"", "Main Dish":"", "Desserts":""}; 
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
 
 	var observers = [];
-	var currentDishId = "";
-	var currentDish = {};
+	//var currentDishId = "";
+	var currentDish = "";
 
 	var filter = "Appetizer";
 	var searchText = "";
@@ -75,14 +75,18 @@ var DinnerModel = function() {
 		return nrGuests;
 	}
 
-	this.getCurrentDishId = function() {
-		if(currentDishId!=""){
-			return currentDishId;
-		}
+	this.getCurrentDish = function() {
+		return currentDish;
 		
 	}
+	this.setCurrentDish = function(newDish) {
+		console.log("currentdish ändras till: "+newDish);
+		currentDish = newDish;
+		this.notifyObservers();
+
+	}
 	this.setCurrentDishId = function(id) {
-		//console.log("currentdishID ändras till: "+id);
+		console.log("currentdishID ändras till: "+id);
 		currentDishId = id;
 		this.getDishAPI();
 		this.notifyObservers();
@@ -96,7 +100,7 @@ var DinnerModel = function() {
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		var array = [menu.Appetizers,menu["Main Dish"], menu.Dessert];
+		var array = [menu.Appetizers,menu["Main Dish"], menu.Desserts];
 
 		return array;
 	}
@@ -113,14 +117,19 @@ var DinnerModel = function() {
 		return ingredients;
 	}
 
-	this.getDishPrice = function(id) {
-		var dish = currentDish;
+	this.getDishPrice = function(obj) {
+		var dish = obj;
 		var dishPrice = 0;
-		for (i in dish.Ingredients) {
-			dishPrice += dish.Ingredients[i].MetricQuantity*nrGuests;
+		try{
+			for (i in dish.Ingredients) {
+				dishPrice += dish.Ingredients[i].MetricQuantity*nrGuests;
+			}
+			dishPrice = +(dishPrice.toFixed(2));
+			return dishPrice;
+		}catch(e){
+			console.log("currentdish är inget dish-objekt");
 		}
-		dishPrice = +(dishPrice.toFixed(2));
-		return dishPrice;
+
 	}
 
 
@@ -141,7 +150,7 @@ var DinnerModel = function() {
 				
 			}
 		} 
-		console.log(fullMenu + "cost: "+totalPrice);
+		//console.log(fullMenu + "cost: "+totalPrice);
 		return +(totalPrice.toFixed(2));
 	}
 
@@ -149,6 +158,7 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(obj) {
 		var type = obj.Category;
+		console.log(type);
 		if (menu[type] != null) {
 			//this.removeDishFromMenu(menu[type]);
 			menu[type] = obj;

@@ -38,7 +38,7 @@ var SelectDishCtrl = function(view, model ) {
 
 
 				model.setCurrentDishId(Number(this.getAttribute("id")));
-				console.log("currDish:" +model.getCurrentDishId());
+				//console.log("currDish:" +model.getCurrentDishId());
 				
 
 				}
