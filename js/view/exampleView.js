@@ -30,18 +30,40 @@ var ExampleView = function (container, model) {
 
 
 		var fullMenu = model.getFullMenu();
+
+		document.getElementById("AppetizersDish").innerHTML = "";
+		document.getElementById("Main DishDish").innerHTML = "";
+		document.getElementById("DessertsDish").innerHTML = "";
+
 		for (dish in fullMenu) {
 			try {	//kan bytas till if
 				if (fullMenu[dish] != "") {
-					document.getElementById(String (fullMenu[dish].Category) + "Dish").innerHTML = "";
+					
 					var dishName = document.createTextNode(fullMenu[dish].Title);
 					var dishPrice = document.createTextNode(model.getDishPrice(fullMenu[dish]));
 					var td1 = document.createElement("td");
+					td1.style.overflow = "hidden";
+					td1.width = "105%";
 					var td2 = document.createElement("td");
+					td2.style.overflow = "hidden";
+					td2.style.width = "40%";
+					var td3 = document.createElement("td");
+					td3.style.overflow = "hidden";
+					td3.style.width = "5%";
+
+					var img = document.createElement('img');
+					img.setAttribute("type", fullMenu[dish].Category);
+					img.setAttribute("class", "removeButtons");
+					img.setAttribute("src", "http://upload.wikimedia.org/wikipedia/en/2/28/Speedy_Delete_Cross.png");
+					img.setAttribute("style", "width: 25px; ");
+
 					td1.appendChild(dishName);
 					td2.appendChild(dishPrice);
+					td3.appendChild(img);
+
 					document.getElementById(String (fullMenu[dish].Category) + "Dish").appendChild(td1);
 					document.getElementById(String (fullMenu[dish].Category) + "Dish").appendChild(td2);
+					document.getElementById(String (fullMenu[dish].Category) + "Dish").appendChild(td3);
 					
 
 				}
@@ -82,6 +104,7 @@ var ExampleView = function (container, model) {
 		this.numberOfGuests.html(model.getNumberOfGuests());
 		this.menuPrice.html(model.getTotalMenuPrice());
 		
+		this.removeButtons = container.find(".removeButtons");
 		//this.dishPrice.html(dishPrice);
 		//this.menuPrice.html(model.getTotalMenuPrice);
 		//this.dishName.html(model.menu)
@@ -89,12 +112,16 @@ var ExampleView = function (container, model) {
 	
 	this.update = function(){
 		this.doView();
+		exampleViewCtrl.update();
 	}
 
 	this.doView(); //runs in inatilatzion phase
 
 
 	model.addObserver(this);
+	var exampleViewCtrl = new ExampleViewCtrl(this, model);
+	
+
 
 
 

@@ -20,4 +20,24 @@ var ExampleViewCtrl = function(view, model ) {
  	$("#WITHMENU").hide();
  	}
  );
+
+ this.update = function(){
+
+		view.removeButtons.click(function()
+			{
+			
+				//console.log("Send to dish: "+this.getAttribute("id"));
+				console.log("remove ctrl");
+				
+
+
+
+				model.removeDishFromMenu(this.getAttribute("type"));
+				
+				
+				
+
+				}
+			);
+	}
 }

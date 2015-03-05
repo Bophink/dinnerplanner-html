@@ -172,13 +172,9 @@ var DinnerModel = function() {
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(type) {
-		menu[type].splice(currDish,1);
-		/*
-		for (dish in fullMenu) {
-			if (dish.id === id) {
-				menu[dish.type].splice(dish,1);
-			}
-		}*/
+		console.log("tar bort: "+type);
+		menu[type] = "";
+		this.notifyObservers();
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")

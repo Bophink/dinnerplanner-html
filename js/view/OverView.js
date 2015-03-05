@@ -47,7 +47,7 @@ var OverView = function (container, model) {
 				var text = document.createElement('h3');
 				text.setAttribute("class", "pull-right");
 				text.setAttribute("style", "color: red; pull-right;")
-				var textText = document.createTextNode(model.getDishPrice(fullMenu[i].id)+" SEK");
+				var textText = document.createTextNode(model.getDishPrice(fullMenu[i])+" SEK");
 
 				text.appendChild(textText);
 				newDiv.appendChild(text);
