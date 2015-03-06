@@ -183,7 +183,7 @@ var DinnerModel = function() {
 	this.getAllDishes = function () {
 
 		
-        var url = "http://api.bigoven.com/recipes?pg=1&rpp=8&any_kw="
+        var url = "http://api.bigoven.com/recipes?pg=1&rpp=24&any_kw="
                   + searchText +" "+ filter  
                   + "&api_key="+apiKey;
                   var model = this;

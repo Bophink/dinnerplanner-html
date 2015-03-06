@@ -3,7 +3,7 @@ var ScViewCtrl = function(view, model ) {
  
  view.button.click(
  	function(){
- 		model.setCurrentDishId("");
+ 		model.setCurrentDish("");
  		$("#FULLSCREEN").hide();
  		$("#SELECT").show();
  		$("#SINGLE").hide();
